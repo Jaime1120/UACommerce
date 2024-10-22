@@ -16,14 +16,23 @@ require_once BASE_PATH . '/controllers/UsuarioController.php';
 $database = new Database();
 $db = $database->getConnection();
 
-// Procesar el registro
+// Crear instancia del controlador
+$controller = new UsuarioController($db);
+
+// Procesar el login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $controller = new UsuarioController($db);
-    $result = $controller->register($_POST);
-    
-    $success = $result['success'];
-    $message = $result['message'];
+    if(isset($_POST['email']) && isset($_POST['password'])) {
+        $result = $controller->login($_POST['email'], $_POST['password']);
+        $success = $result['success'];
+        $message = $result['message'];
+        
+        if($success) {
+            // Redirigir al dashboard o página principal después del login
+            header("Location: /UACommerce/dashboard.php");
+            exit;
+        }
+    }
 }
 
-// Mostrar la vista
-require_once BASE_PATH . '/views/register.php';
+// Mostrar la vista de login
+require_once BASE_PATH . '/views/login.php';

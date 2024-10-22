@@ -3,7 +3,6 @@ class Usuario {
     private $conn;
     private $table_name = "Usuarios";
 
-    // Propiedades del usuario
     public $id;
     public $nombre;
     public $apellidos;
@@ -23,6 +22,18 @@ class Usuario {
         $stmt->bindParam(':correo', $this->correo_electronico);
         $stmt->execute();
         return $stmt->rowCount() > 0;
+    }
+
+    public function getByEmail($email) {
+        $query = "SELECT id_usuario, nombre, apellidos, correo_electronico, contrasena, tipo_usuario 
+                 FROM " . $this->table_name . " 
+                 WHERE correo_electronico = :correo";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':correo', $email);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function create() {

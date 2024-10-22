@@ -7,12 +7,10 @@ class UsuarioController {
     }
     
     public function register($data) {
-        // Validación básica
         if(empty($data['nombre']) || empty($data['correo_electronico']) || empty($data['contrasena'])) {
             return ["success" => false, "message" => "Todos los campos obligatorios deben estar completos."];
         }
 
-        // Asignar valores al modelo
         $this->usuario->nombre = $data['nombre'];
         $this->usuario->apellidos = $data['apellidos'];
         $this->usuario->correo_electronico = $data['correo_electronico'];
@@ -21,16 +19,44 @@ class UsuarioController {
         $this->usuario->telefono = $data['telefono'];
         $this->usuario->tipo_usuario = $data['tipo_usuario'];
 
-        // Verificar si el email ya existe
         if($this->usuario->emailExists()) {
             return ["success" => false, "message" => "Este correo electrónico ya está registrado."];
         }
 
-        // Intentar crear el usuario
         if($this->usuario->create()) {
             return ["success" => true, "message" => "Usuario registrado exitosamente."];
         }
         
-        return ["success" => false, "message" => "Error al crear el usuario. Por favor intente nuevamente."];
+        return ["success" => false, "message" => "Error al crear el usuario."];
+    }
+
+    public function login($email, $password) {
+        if(empty($email) || empty($password)) {
+            return ["success" => false, "message" => "Por favor ingrese correo y contraseña."];
+        }
+
+        $userData = $this->usuario->getByEmail($email);
+        
+        if($userData && password_verify($password, $userData['contrasena'])) {
+            // Iniciar sesión
+            session_start();
+            $_SESSION['user_id'] = $userData['id_usuario'];
+            $_SESSION['user_name'] = $userData['nombre'];
+            $_SESSION['user_type'] = $userData['tipo_usuario'];
+            
+            return [
+                "success" => true, 
+                "message" => "Bienvenido " . $userData['nombre'],
+                "user" => $userData
+            ];
+        }
+        
+        return ["success" => false, "message" => "Correo o contraseña incorrectos."];
+    }
+
+    public function logout() {
+        session_start();
+        session_destroy();
+        return ["success" => true, "message" => "Sesión cerrada correctamente."];
     }
 }
