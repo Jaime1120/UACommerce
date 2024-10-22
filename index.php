@@ -35,4 +35,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Mostrar la vista de login
-require_once BASE_PATH . '/views/login.php';
+require_once BASE_PATH . '/views/loginView.php';

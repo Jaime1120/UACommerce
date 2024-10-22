@@ -51,4 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Mostrar la vista de registro
-require_once BASE_PATH . '/views/register.php';
+require_once BASE_PATH . '/views/registerView.php';
