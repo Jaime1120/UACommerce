@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    color: white;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white; /* Fondo blanco para los logos */
+}
+
+.logo-left img {
+    width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+}
+
+.logo-right img {
+    width: 250px; /* Ajusta el tamaño del logo aquí sea necesario */
+    height: auto;
+}
+
+.header-container {
+    background-color: #1a2a44; /* Color del recuadro azul */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 55px;
+    height: 100px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-style: italic;
+    padding: 5px 10px;
+}
+
+.nav-menu ul li a:hover {
+    text-decoration: dashed;
+    color: #f1f730;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    padding: 12px; /* Aumentamos el padding para hacerlo más alto */
+    border: none;
+    outline: none;
+    width: 500px; /* Aumentamos el ancho de la barra de búsqueda */
+    font-size: 16px; /* Hacemos el texto más grande */
+}
+
+.search-bar button {
+    background-color: #fff200;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Aumentamos el tamaño del botón */
+    font-size: 20px; /* Aumentamos el tamaño de la lupa */
+    cursor: pointer;
+}
+
+.user-options a {
+    padding: 5px 25px;
+}
+
+.user-options img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilos para las cartas de productos */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 1200px;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #f9f9f9;
+    border: 5px solid #0b0b0b;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-buttons button {
+    background-color: #1a2a44;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.card-buttons button:hover {
+    background-color: #ffa500;
+}
