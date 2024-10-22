@@ -8,9 +8,9 @@ error_reporting(E_ALL);
 define('BASE_PATH', __DIR__);
 
 // Incluir archivos necesarios
-require_once BASE_PATH . '/config/Database.php';
-require_once BASE_PATH . '/models/Usuario.php';
-require_once BASE_PATH . '/controllers/UsuarioController.php';
+require_once BASE_PATH . '/../config/Database.php';
+require_once BASE_PATH . '/../models/Usuario.php';
+require_once BASE_PATH . '/../controllers/UsuarioController.php';
 
 // Inicializar variables
 $success = false;
@@ -51,4 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Mostrar la vista de registro
-require_once BASE_PATH . '/views/registerView.php';
+require_once BASE_PATH . '/../views/registerView.php';
