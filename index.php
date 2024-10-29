@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,10 +40,32 @@
                 <button type="submit">&#128269;</button> <!-- Icono de búsqueda -->
             </div>
             <div class="user-options">
+<<<<<<< HEAD
                 <a href="#" class="icon"><i class='bx bx-cart'></i></a>
                 <div class="form-group text-center">
                     <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
                 </div>
+=======
+                <a href="#"><img src="Recursos/Carrito.png" alt="Carrito"></a>
+
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="controllers/logout.php">Cerrar sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <a href="controllers/login.php" class="btn btn-primary">
+                        <img src="Recursos/usuario.png" alt="Usuario" style="width: 30px; height: 30px;">
+                    </a>
+                <?php endif; ?>
+
+                    
+>>>>>>> 81bea8a43a9a8cb73a05eacb6e97471af19dfd86
 
             </div>
         </div>
