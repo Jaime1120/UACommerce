@@ -6,7 +6,8 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+   /* font-family: Arial, sans-serif;*/
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Header y logos - Con ajustes responsivos */
@@ -97,7 +98,17 @@ body {
 }
 
 .user-options a {
-    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(24px, 4vw, 32px); /* Tamaño responsivo */
+    color: #ffffff; /* Color del ícono */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-options a:hover {
+    color: #e6d543; /* Cambia de color al pasar el ratón */
+    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
 }
 
 .user-options img {
@@ -137,6 +148,7 @@ body {
 .product-card:hover {
     transform: scale(1.02); /* Agranda un poco la tarjeta */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    background-color: #eceff1;
 
 }
 
