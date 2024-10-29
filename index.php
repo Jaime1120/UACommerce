@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,11 +40,24 @@
             </div>
             <div class="user-options">
                 <a href="#"><img src="Recursos/Carrito.png" alt="Carrito"></a>
-                <div class="form-group text-center">
+
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="controllers/logout.php">Cerrar sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
                     <a href="controllers/login.php" class="btn btn-primary">
                         <img src="Recursos/usuario.png" alt="Usuario" style="width: 30px; height: 30px;">
                     </a>
-                </div>
+                <?php endif; ?>
+
+                    
 
             </div>
         </div>
