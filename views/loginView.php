@@ -32,7 +32,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form method="post" action="/UACommerce/index.php" class="needs-validation" novalidate>
+                        <form method="post" class="needs-validation" novalidate>
                             <div class="form-group">
                                 <label>Correo Electrónico:</label>
                                 <input type="email" name="email" class="form-control" required>

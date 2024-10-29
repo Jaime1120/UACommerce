@@ -40,6 +40,25 @@
                 <div class="form-group text-center">
                     <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
                 </div>
+                <a href="#"><img src="Recursos/Carrito.png" alt="Carrito"></a>
+
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <a href="controllers/login.php" class="btn btn-primary">
+                        <img src="Recursos/usuario.png" alt="Usuario" style="width: 30px; height: 30px;">
+                    </a>
+                <?php endif; ?>
+
+                    
 
             </div>
         </div>
