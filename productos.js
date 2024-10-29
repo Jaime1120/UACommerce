@@ -20,34 +20,6 @@ const productosSimulados = [
         descripcion: "Ricos y sabrosos panuchos de cochinita.",
         precio: 15,
         imagen_url: "https://revistacitylife.com/wp-content/uploads/2018/03/panuchos-pescado.jpg" 
-    },
-    {
-        id_producto: 1,
-        nombre_producto: "Galletas de chispas de chocolate",
-        descripcion: "Ricas y sabrosas galletas crujientes con chispas de chocolate.",
-        precio: 20,
-        imagen_url: "https://m.media-amazon.com/images/I/616gyWldRTL._AC_SL1500_.jpg" 
-    },
-    {
-        id_producto: 2,
-        nombre_producto: "Aguas frescas",
-        descripcion: "tenemos de diversos sabores, ven a probarlas",
-        precio: 25,
-        imagen_url: "https://productosciervo.com.mx/wp-content/uploads/2021/03/9c57e5c564eb8b42764a377a14c1383f.jpg" 
-    },
-    {
-        id_producto: 3,
-        nombre_producto: "Panuchos de cochinita",
-        descripcion: "Ricos y sabrosos panuchos de cochinita.",
-        precio: 15,
-        imagen_url: "https://revistacitylife.com/wp-content/uploads/2018/03/panuchos-pescado.jpg" 
-    },
-    {
-        id_producto: 1,
-        nombre_producto: "Galletas de chispas de chocolate",
-        descripcion: "Ricas y sabrosas galletas crujientes con chispas de chocolate.",
-        precio: 20,
-        imagen_url: "https://cdn7.kiwilimon.com/recetaimagen/31079/640x640/35433.jpg.webp" 
     }
 ];
 

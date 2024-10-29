@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,6 +11,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+
     <style>
         .product-card {
             cursor: pointer;
@@ -37,9 +42,25 @@
             </div>
             <div class="user-options">
                 <a href="#" class="icon"><i class='bx bx-cart'></i></a>
-                <div class="form-group text-center">
+
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="form-group text-center">
                     <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
-                </div>
+                    </div>
+
+                <?php endif; ?>
+
+                    
 
             </div>
         </div>
