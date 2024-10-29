@@ -20,6 +20,7 @@ CREATE TABLE Productos (
     nombre_producto VARCHAR(100) NOT NULL,
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
+    categoria NOT NULL VARCHAR(),
     stock INT NOT NULL,
     imagen_url VARCHAR(255),
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
