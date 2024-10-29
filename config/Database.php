@@ -20,8 +20,6 @@ class Database {
         $this->dbname = $_ENV['DB_DATABASE'] ?? 'test';
         $this->username = $_ENV['DB_USERNAME'] ?? 'root';
         $this->password = $_ENV['DB_PASSWORD'] ?? '';
-        print_r($_ENV);  // Te mostrará todas las variables cargadas en $_ENV
-
     }
 
     // Método para obtener la conexión PDO
