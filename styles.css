@@ -103,6 +103,11 @@ body {
 .user-options img {
     width: clamp(30px, 5vw, 40px);
     height: auto;
+    transition: transform 0.2s ease;
+}
+
+.user-options img:hover {
+    transform: rotate(10deg); /* Rotación ligera al pasar el ratón */
 }
 
 /* Contenedor de productos responsivo */
@@ -123,18 +128,32 @@ body {
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.02); /* Agranda un poco la tarjeta */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra suave */
+
 }
 
 .product-card img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: contain;
     border-radius: 10px;
     margin-bottom: 15px;
+    background-color: #f0f0f0;
+    
 }
 
 .product-card h3 {
     font-size: clamp(1.1em, 2vw, 1.2em);
     margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-card p {
@@ -143,6 +162,7 @@ body {
 }
 
 .card-buttons {
+    margin-top: auto; /* Empuja el contenedor de botones hacia la parte inferior */
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -157,6 +177,24 @@ body {
     cursor: pointer;
     border-radius: 5px;
     width: 100%;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-buttons button:hover {
+    background-color: #333; /* Color oscuro en hover */
+    transform: scale(1.02); /* Agranda ligeramente el botón */
+}
+
+.add-to-cart {
+   /* background-color: #e6d543 !important;*/
+    box-shadow: 0 0 0px rgba(255, 242, 0, 0.5);
+    transition: box-shadow 0.2s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #e6d543 !important;
+    box-shadow: 0 0 10px rgba(255, 242, 0, 0.8); /* Resplandor amarillo */
 }
 
 /* Media Queries para ajustes específicos */

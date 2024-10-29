@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UACommerce</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         .product-card {
             cursor: pointer;
@@ -47,7 +48,7 @@
     <!-- Sección de cartas de productos -->
     <div class="product-container">
         <div class="product-card" onclick="location.href='Product.php'">
-            <img src="image/producto1.jpg" alt="Producto 1">
+            <img class="product-img" >
             <h3>Producto 1</h3>
             <p>$100.00</p>
             <p>Descripción breve del producto 1. Este es un gran producto.</p>
@@ -56,7 +57,9 @@
                 <button class="remove-from-cart">Quitar del carrito</button>
             </div>
         </div>
-        <!-- Más cartas de productos pueden agregarse aquí -->
+    
     </div>
+
+    <script src="productos.js"></script>
 </body>
 </html>
