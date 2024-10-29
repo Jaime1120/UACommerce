@@ -32,7 +32,7 @@
                             </div>
                         <?php endif; ?>
 
-                        <form method="post" action="/UACommerce/register.php" class="needs-validation" novalidate>
+                        <form method="post" action="/UACommerce/controllers/register.php" class="needs-validation" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

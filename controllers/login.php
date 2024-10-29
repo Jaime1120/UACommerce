@@ -12,6 +12,7 @@ require_once BASE_PATH . '/../config/Database.php';
 require_once BASE_PATH . '/../models/Usuario.php';
 require_once BASE_PATH . '/../controllers/UsuarioController.php';
 
+// Inicializar la base de datos
 $database = new Database();
 $db = $database->getConnection();
 

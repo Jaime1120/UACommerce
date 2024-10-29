@@ -35,7 +35,12 @@
             </div>
             <div class="user-options">
                 <a href="#"><img src="Recursos/Carrito.png" alt="Carrito"></a>
-                <a href="#"><img src="Recursos/usuario.png" alt="Usuario"></a>
+                <div class="form-group text-center">
+                    <a href="controllers/login.php" class="btn btn-primary">
+                        <img src="Recursos/usuario.png" alt="Usuario" style="width: 30px; height: 30px;">
+                    </a>
+                </div>
+
             </div>
         </div>
     </header>
