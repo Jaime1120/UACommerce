@@ -61,11 +61,12 @@ body {
     /*font-family: 'Poppins', sans-serif;*/
     padding: 5px 10px;
     white-space: nowrap; /* Evita que los textos se rompan */
+    transition: color 0.3s ease, transform 0.3s ease; /* Agrega transición para suavizar */
 }
 
 .nav-menu ul li a:hover {
     color: #ffd700;
-    transform: scale(1.10) !important;
+   /* transform: scale(1.1);*/
 }
 
 /* Barra de búsqueda responsiva */

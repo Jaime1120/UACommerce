@@ -11,6 +11,7 @@ session_start();
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
         .product-card {
@@ -77,6 +78,13 @@ session_start();
         </div>
     
     </div>
+
+    <footer class="footer mt-4 py-3 bg-light">
+            <div class="container text-center">
+                <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
+            </div>
+    </footer>
+
 
     <script src="productos.js"></script>
 </body>
