@@ -63,6 +63,11 @@ body {
     white-space: nowrap; /* Evita que los textos se rompan */
 }
 
+.nav-menu ul li a:hover {
+    color: #ffd700;
+    transform: scale(1.10) !important;
+}
+
 /* Barra de búsqueda responsiva */
 .search-bar {
     display: flex;
@@ -155,7 +160,7 @@ body {
 
 .product-card {
     background-color: #f9f9f9;
-    border: 5px solid #0b0b0b;
+    border: 2px solid #868484;
     border-radius: 10px;
     padding: clamp(10px, 2vw, 20px);
     width: 100%;
@@ -251,11 +256,16 @@ body {
     font-style: italic;
 }
 
+.dropdown:hover {
+    color: #e6d543;
+    transform: scale(1.10); 
+    cursor: pointer;
+}
+
 /* Contenedor del menú desplegable */
 .dropdown-content {
     display: none; /* Oculto por defecto */
     position: absolute;
-    background-color: #1a2a44; /* Azul oscuro, mismo que el header */
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
     z-index: 1;
@@ -266,19 +276,19 @@ body {
 
 /* Links dentro del menú desplegable */
 .dropdown-content a {
-    color: white; /* Color de texto blanco */
     padding: 12px 16px;
     text-decoration: none;
+    border-radius: 8px;
     display: block;
     font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
     transition: background-color 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria tenue */
+    border-bottom: 1px solid rgba(12, 1, 1, 0.1); /* Línea divisoria tenue */
 }
 
 /* Color de fondo al pasar el mouse por un enlace */
 .dropdown-content a:hover {
-    background-color: #e6d543; /* Color amarillo */
-    color: #1a2a44; /* Texto azul al hacer hover */
+    background-color: #e6d543 !important; /* Color amarillo */
+    color: #f6f7f8; /* Texto azul al hacer hover */
 }
 
 /* Muestra el menú desplegable al hacer hover en el contenedor */
@@ -286,17 +296,6 @@ body {
     display: block;
 }
 
-/* Botón de cerrar sesión con estilo distinto */
-.logout-button {
-    color: #ff4d4f; /* Color de advertencia */
-    font-weight: bold;
-}
-
-/* Estilo especial al pasar el mouse por el botón de cerrar sesión */
-.logout-button:hover {
-    background-color: #ff4d4f; /* Fondo rojo en hover */
-    color: white; /* Texto blanco */
-}
 
 /* Media Queries para ajustes específicos */
 @media (max-width: 768px) {
