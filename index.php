@@ -51,7 +51,7 @@ session_start();
                         <div class="dropdown-content">
                             <a href="/UACommerce/controllers/profile.php">Perfil</a>
                             <a href="settings.php">Configuración</a>
-                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar Sesión</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
                         </div>
                     </div>
                 <?php else: ?>
