@@ -80,9 +80,23 @@ class UsuarioController {
         return ["success" => false, "message" => "Correo o contraseña incorrectos."];
     }
 
-    public function logout() {
-        session_start();
-        session_destroy();
-        return ["success" => true, "message" => "Sesión cerrada correctamente."];
+
+    public function viewProfile($userId) {
+        // Obtener los datos del usuario usando el id_usuario
+        $userData = $this->usuario->getById($userId);
+
+        if ($userData) {
+            return [
+                "success" => true,
+                "data" => $userData
+            ];
+        }
+        
+        return [
+            "success" => false,
+            "message" => "Usuario no encontrado."
+        ];
     }
+
+
 }
