@@ -38,11 +38,12 @@ session_start();
             </nav>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar productos...">
-                <button type="submit">&#128269;</button> <!-- Icono de búsqueda -->
+                <button type="submit" class="search-button">
+                    <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
+                </button>
             </div>
             <div class="user-options">
                 <a href="#" class="icon"><i class='bx bx-cart'></i></a>
-
 
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="dropdown">
@@ -59,9 +60,6 @@ session_start();
                     </div>
 
                 <?php endif; ?>
-
-                    
-
             </div>
         </div>
     </header>

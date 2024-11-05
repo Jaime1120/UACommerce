@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: clamp(15px, 3vw, 55px); /* Padding responsivo */
+    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
     min-height: 100px;
     border-radius: 5px;
     flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
@@ -83,13 +83,21 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.search-bar button {
+.search-bar .search-button {
     background-color: #fff200;
-    color: white;
+    color: #1a2a44;
     border: none;
     padding: clamp(8px, 2vw, 12px);
-    font-size: clamp(12px, 1.5vw, 14px);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 2.5vw, 24px); /* Tamaño del icono responsivo */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar .search-button:hover {
+    background-color: #ffd700; /* Cambia el color en hover */
 }
 
 /* Opciones de usuario responsivas */
@@ -232,6 +240,62 @@ body {
 .remove-from-cart:hover {
     background-color: #c53535 !important;
     box-shadow: 0 0 10px rgba(211, 84, 58, 0.8); /* Resplandor rojo */
+}
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto blanco para el saludo */
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    background-color: #1a2a44; /* Azul oscuro, mismo que el header */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    z-index: 1;
+    border-radius: 8px; /* Bordes redondeados */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Links dentro del menú desplegable */
+.dropdown-content a {
+    color: white; /* Color de texto blanco */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria tenue */
+}
+
+/* Color de fondo al pasar el mouse por un enlace */
+.dropdown-content a:hover {
+    background-color: #e6d543; /* Color amarillo */
+    color: #1a2a44; /* Texto azul al hacer hover */
+}
+
+/* Muestra el menú desplegable al hacer hover en el contenedor */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Botón de cerrar sesión con estilo distinto */
+.logout-button {
+    color: #ff4d4f; /* Color de advertencia */
+    font-weight: bold;
+}
+
+/* Estilo especial al pasar el mouse por el botón de cerrar sesión */
+.logout-button:hover {
+    background-color: #ff4d4f; /* Fondo rojo en hover */
+    color: white; /* Texto blanco */
 }
 
 /* Media Queries para ajustes específicos */
