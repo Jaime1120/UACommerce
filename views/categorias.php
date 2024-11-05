@@ -26,7 +26,7 @@ session_start();
             <ul>
                 <li><a href="#">Lo más top</a></li>
                 <li><a href="#">Historial</a></li>
-                <li><a href="views/categorias.php">Categorías</a></li>
+                <li><a href="views/categorias.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
             </ul>
         </nav>
         <div class="search-bar">    
@@ -71,10 +71,10 @@ session_start();
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
-        <img class="product-img" src="../Recursos/servicios.jfif" alt="Producto 1">
-        <h3>SERVICIOS</h3>
-        
-        <p>Prestacion de servicios de todo tipo, impresiones, tenis, camisas y mas. </p>
+        <img class="product-img" src="../Recursos/bebidas.jpg" alt="Producto 1">
+        <h3>BEBIDAS</h3>
+         
+        <p>Bebidas, jugos, aguas naturales, malteadas y mas.</p>
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
@@ -85,31 +85,31 @@ session_start();
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
-        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p>$100.00</p>
-        <p>Descripción breve del producto 1.</p>
+        <img class="product-img" src="../Recursos/papeleria.jpg" alt="Producto 1">
+        <h3>PAPELERIA</h3>
+        
+        <p>Hojas, impresiones, lapices, plumas y mas.</p>
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
-        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p>$100.00</p>
-        <p>Descripción breve del producto 1.</p>
+        <img class="product-img" src="../Recursos/bisuteria.jpg" alt="Producto 1">
+        <h3>BISUTERIA</h3>
+        
+        <p>Pulseras, collares, stickers, aretes, colgantes y mas.</p>
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
-        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p>$100.00</p>
-        <p>Descripción breve del producto 1.</p>
+        <img class="product-img" src="../Recursos/servicios.jfif" alt="Producto 1">
+        <h3>SERVICIOS</h3>
+        
+        <p>Prestacion de servicios de todo tipo, impresiones, tenis, camisas y mas. </p>
     </div>
 
     <div class="product-card" onclick="location.href='Product.php'">
-        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
-        <h3>Producto 1</h3>
-        <p>$100.00</p>
-        <p>Descripción breve del producto 1.</p>
+        <img class="product-img" src="../Recursos/libros.jpg" alt="Producto 1">
+        <h3>LIBROS</h3>
+        
+        <p>Venta de libros, guias y enciclopedias.</p>
     </div>
     <!-- Añadir más productos según sea necesario -->
 </div>
