@@ -1,0 +1,117 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías - UACommerce</title>
+    <link rel="stylesheet" href="categorias.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <div class="logo-left">
+            <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+        </div>
+        <div class="logo-right">
+            <img src="../Recursos/Logouni.jpg" alt="Logo Página">
+        </div>
+    </div>
+    <div class="header-container">
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Lo más top</a></li>
+                <li><a href="#">Historial</a></li>
+                <li><a href="views/categorias.php">Categorías</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">    
+            <input type="text" placeholder="Buscar productos...">
+            <button type="submit">&#128269;</button>
+        </div>
+        <div class="user-options">
+            <a href="#"><img src="../Recursos/Carrito.png" alt="Carrito"></a>
+
+            <?php if (isset($_SESSION['user_name'])): ?>
+                <div class="dropdown">
+                    <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                    <div class="dropdown-content">
+                        <a href="profile.php">Perfil</a>
+                        <a href="settings.php">Configuración</a>
+                        <a href="controllers/logout.php">Cerrar sesión</a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <a href="controllers/login.php" class="btn btn-primary">
+                    <img src="../Recursos/usuario.png" alt="Usuario" style="width: 30px; height: 30px;">
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+</header>
+
+<div class="product-container">
+    <!-- Ejemplo de productos -->
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/dulces.avif" alt="Producto 1">
+        <h3>DULCES</h3>
+        
+        <p>Dulces, paletas y golocinas.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/postres.jpg" alt="Producto 1">
+        <h3>POSTRES</h3>
+
+        <p>Postres de todo tipo, brownies, pasteles, muffins y reposteria.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/servicios.jfif" alt="Producto 1">
+        <h3>SERVICIOS</h3>
+        
+        <p>Prestacion de servicios de todo tipo, impresiones, tenis, camisas y mas. </p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/comida.jpg" alt="Producto 1">
+        <h3>COMIDA</h3>
+        
+        <p>Servicio de alimentos, sandwiches, tortas y desayunos y almuerzos.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>$100.00</p>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>$100.00</p>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>$100.00</p>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+
+    <div class="product-card" onclick="location.href='Product.php'">
+        <img class="product-img" src="../Recursos/producto1.jpg" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>$100.00</p>
+        <p>Descripción breve del producto 1.</p>
+    </div>
+    <!-- Añadir más productos según sea necesario -->
+</div>
+</body>
+</html>
