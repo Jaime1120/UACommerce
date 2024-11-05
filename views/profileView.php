@@ -67,19 +67,19 @@
         <div class="profile-content">
             <div class="profile-row">
                 <label>ID Usuario:</label>
-                <span class="value">12345</span>
+                <span class="value"><?= htmlspecialchars($userData['id_usuario']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Nombre:</label>
-                <span class="value">Juan</span>
+                <span class="value"><?= htmlspecialchars($userData['nombre']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Apellidos:</label>
-                <span class="value">Pérez López</span>
+                <span class="value"><?= htmlspecialchars($userData['apellidos']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Correo Electrónico:</label>
-                <span class="value">juan.perez@example.com</span>
+                <span class="value"><?= htmlspecialchars($userData['correo_electronico']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Contraseña:</label>
@@ -87,19 +87,19 @@
             </div>
             <div class="profile-row">
                 <label>Dirección:</label>
-                <span class="value">123 Calle Falsa</span>
+                <span class="value"><?= htmlspecialchars($userData['direccion']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Teléfono:</label>
-                <span class="value">+1 234 567 890</span>
+                <span class="value"><?= htmlspecialchars($userData['telefono']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Tipo de Usuario:</label>
-                <span class="value">Administrador</span>
+                <span class="value"><?= htmlspecialchars($userData['tipo_usuario']); ?></span>
             </div>
             <div class="profile-row">
                 <label>Fecha de Registro:</label>
-                <span class="value">01/01/2023</span>
+                <span class="value"><?= htmlspecialchars($userData['fecha_registro']); ?></span>
             </div>
         </div>
         <div class="profile-footer">

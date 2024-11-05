@@ -24,6 +24,7 @@ class Usuario {
         return $stmt->rowCount() > 0;
     }
 
+
     public function getByEmail($email) {
         $query = "SELECT id_usuario, nombre, apellidos, correo_electronico, contrasena, tipo_usuario 
                  FROM " . $this->table_name . " 
@@ -33,6 +34,19 @@ class Usuario {
         $stmt->bindParam(':correo', $email);
         $stmt->execute();
 
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+    public function getById($id) {
+        $query = "SELECT id_usuario, nombre, apellidos, correo_electronico, contrasena, direccion, telefono, tipo_usuario, fecha_registro 
+                  FROM " . $this->table_name . " 
+                  WHERE id_usuario = :id";
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 

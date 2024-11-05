@@ -49,7 +49,7 @@ session_start();
                     <div class="dropdown">
                         <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
                         <div class="dropdown-content">
-                            <a href="profile.php">Perfil</a>
+                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
                             <a href="settings.php">Configuración</a>
                             <a href="/UACommerce/logout.php" class="logout-button">Cerrar Sesión</a>
                         </div>
