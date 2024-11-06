@@ -61,12 +61,11 @@ body {
     /*font-family: 'Poppins', sans-serif;*/
     padding: 5px 10px;
     white-space: nowrap; /* Evita que los textos se rompan */
-    transition: color 0.3s ease, transform 0.3s ease; /* Agrega transición para suavizar */
 }
 
 .nav-menu ul li a:hover {
     color: #ffd700;
-   /* transform: scale(1.1);*/
+    transform: scale(1.10);
 }
 
 /* Barra de búsqueda responsiva */
@@ -109,13 +108,13 @@ body {
 /* Opciones de usuario responsivas */
 .user-options {
     display: flex;
-    gap: 40px;
+    gap: 40px ;
     justify-content: center;
     align-items: center;
 }
 
 .user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
-    font-size: clamp(30px, 4vw, 38px); /* Aumenta el tamaño de los iconos */
+    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
     color: #ffffff; /* Color de los iconos */
     transition: color 0.3s ease, transform 0.2s ease;
 }
@@ -137,16 +136,6 @@ body {
 .user-options a:hover {
     color: #e6d543; /* Cambia de color al pasar el ratón */
     transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
-}
-
-.user-options img {
-    width: clamp(30px, 5vw, 40px);
-    height: auto;
-    transition: transform 0.2s ease;
-}
-
-.user-options img:hover {
-    transform: rotate(10deg); /* Rotación ligera al pasar el ratón */
 }
 
 /* Contenedor de productos responsivo */
@@ -171,6 +160,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
 .product-card:hover {
@@ -297,6 +287,50 @@ body {
     display: block;
 }
 
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Estilo para el footer*/
+footer {
+    background-color: #f9fafb;
+    color: #999;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
 
 /* Media Queries para ajustes específicos */
 @media (max-width: 768px) {
@@ -367,36 +401,9 @@ body {
     .search-bar input {
         background-color: #f5f5f5;
     }
+
+    footer {
+        background-color: #1a1a1a;
+    }
 }
 
-/* Estilos para el menú desplegable */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 5px;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #ddd;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
