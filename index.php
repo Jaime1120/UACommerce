@@ -58,6 +58,7 @@ session_start();
             </div>
         </div>
     </header>
+    
     <!-- Sección de cartas de productos -->
     <div class="product-container">
         <div class="product-card" onclick="location.href='Product.php'">
