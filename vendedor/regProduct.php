@@ -71,11 +71,11 @@
 
                             <div class="form-group">
                                 <label>Cantidad en Stock:</label>
-                                <input type="number" name="stock" class="form-control" required
+                                <input type="number" name="stock" class="form-control" min="0" required
                                     value="<?php echo isset($_POST['stock']) ? htmlspecialchars($_POST['stock']) : ''; ?>">
-                                <div class="invalid-feedback">Por favor ingrese la cantidad en stock.</div>
+                                <div class="invalid-feedback">Por favor ingrese la cantidad en stock (mínimo 0).</div>
                             </div>
-
+                            
                             <div class="form-group">
                                 <label>URL de la Imagen:</label>
                                 <input type="url" name="imagen_url" class="form-control" 

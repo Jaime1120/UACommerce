@@ -39,4 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrar_pago'])) {
     <select name="estado_pago">
         <option value="pendiente">Pendiente</option>
         <option value="completado">Completado</option>
-        <option value
+        <option value="fallido">Fallido</option>
+    </select><br>
+    <label>Monto:</label>
+    <input type="number" name="monto" step="0.01" required><br>
+    <button type="submit" name="registrar_pago">Registrar Pago</button>
+</form>
