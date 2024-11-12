@@ -23,7 +23,7 @@
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#">Lo más top</a></li>
-                    <li><a href="#">Historial</a></li>
+                    <li><a href="#">Mis compras</a></li>
                     <li><a href="views/categorias.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
                 </ul>
             </nav>
@@ -78,7 +78,7 @@
             </div>
             <div class="profile-row">
                 <label>Contraseña:</label>
-                <span class="value">********</span>
+                <span class="value">*******</span>
             </div>
             <div class="profile-row">
                 <label>Dirección:</label>
