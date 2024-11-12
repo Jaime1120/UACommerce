@@ -14,16 +14,23 @@ CREATE TABLE Usuarios (
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE Categorias (
+    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_categoria ENUM('dulces', 'postres', 'bebidas', 'comida', 'papeleria', 'bisuteria', 'servicios', 'libros') NOT NULL
+);
+
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY AUTO_INCREMENT,
     id_vendedor INT,
+    id_categoria INT NOT NULL,  -- Hacer que esta columna sea NOT NULL para asegurar que se asigne una categoría
     nombre_producto VARCHAR(100) NOT NULL,
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
     imagen_url VARCHAR(255),
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_vendedor) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE
+    FOREIGN KEY (id_vendedor) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria) ON DELETE RESTRICT -- Impide borrar categorías en uso
 );
 
 CREATE TABLE Pedidos (
