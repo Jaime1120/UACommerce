@@ -27,7 +27,7 @@ session_start();
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#">Lo más top</a></li>
-                    <li><a href="#">Historial</a></li>
+                    <li><a href="#">Mis compras</a></li>
                     <li><a href="#"> Categorías</a></li> 
                 </ul>
             </nav>
