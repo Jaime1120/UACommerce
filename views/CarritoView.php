@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Carrito - UACommerce</title>
         <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="carrito.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     </head>
@@ -26,13 +27,13 @@
                     <ul>
                         <li><a href="#">Lo más top</a></li>
                         <li><a href="#">Historial</a></li>
-                        <li><a href="views/categorias.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
+                        <li><a href="views/categorias.php">Categorías</a></li>
                     </ul>
                 </nav>
                 <div class="search-bar">
                     <input type="text" placeholder="Buscar productos...">
                     <button type="submit" class="search-button">
-                        <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
+                        <i class='bx bx-search-alt-2'></i>
                     </button>
                 </div>
                 <div class="user-options">
@@ -59,21 +60,27 @@
 
         <main>
             <div class="carrito-container">
-                <h1>Carrito de Compras</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Aquí puedes mostrar los productos en el carrito -->
-                    </tbody>
-                </table>
+                <div class="product-list">
+                    <h1>Carrito</h1>
+                    <ul>
+                        <?php
+                        if (isset($_SESSION['carrito'])) {
+                            foreach ($_SESSION['carrito'] as $producto) {
+                                echo '<li>';
+                                echo '<span class="product-name">' . $producto['name'] . '</span>';
+                                echo '<span class="product-quantity">Cantidad: ' . $producto['quantity'] . '</span>';
+                                echo '<span class="product-price">Precio: $' . $producto['price'] . '</span>';
+                                echo '</li>';
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
+
+                <div class="price-container">
+                    <h2>Total:</h2>
+                    <span id="total-amount"></span>
+                </div>
             </div>
         </main>
 
