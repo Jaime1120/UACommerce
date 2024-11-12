@@ -6,20 +6,19 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Contenedor de logos */
 .logo-container {
     display: flex;
-    justify-content: space-between; /* Alinea los logos a los extremos */
-    align-items: center; /* Centra verticalmente */
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     background-color: white;
-    flex-wrap: wrap; /* Permite que los logos se ajusten si es necesario */
+    flex-wrap: wrap; /* Permite que los logos se apilen en pantallas pequeñas */
     gap: 10px;
-    max-width: 1200px; /* Ajusta según tus necesidades */
-    margin: 0 auto; /* Centra el contenedor */
 }
 
 .logo-left img {
@@ -39,37 +38,38 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: clamp(15px, 3vw, 55px);
-    min-height: 80px;
+    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
+    min-height: 100px;
     border-radius: 5px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
     gap: 15px;
 }
 
-/* Menú de navegación */
+/* Navegación responsiva */
 .nav-menu ul {
     list-style-type: none;
     display: flex;
     gap: clamp(10px, 2vw, 20px);
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
     justify-content: center;
 }
 
 .nav-menu ul li a {
     color: white;
     text-decoration: none;
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
     font-style: italic;
+    /*font-family: 'Poppins', sans-serif;*/
     padding: 5px 10px;
-    white-space: nowrap;
+    white-space: nowrap; /* Evita que los textos se rompan */
 }
 
 .nav-menu ul li a:hover {
-    text-decoration: dotted;
-    color: #fff200;
+    color: #ffd700;
+    transform: scale(1.10);
 }
 
-/* Barra de búsqueda */
+/* Barra de búsqueda responsiva */
 .search-bar {
     display: flex;
     align-items: center;
@@ -77,7 +77,7 @@ body {
     border-radius: 5px;
     overflow: hidden;
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Máximo ancho en pantallas grandes */
 }
 
 .search-bar input {
@@ -85,33 +85,144 @@ body {
     border: none;
     outline: none;
     width: 100%;
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-family: 'Poppins', sans-serif;
 }
 
-.search-bar button {
+.search-bar .search-button {
     background-color: #fff200;
-    color: white;
+    color: #1a2a44;
     border: none;
     padding: clamp(8px, 2vw, 12px);
-    font-size: clamp(16px, 2vw, 20px);
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 2.5vw, 24px); /* Tamaño del icono responsivo */
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Opciones de usuario */
+.search-bar .search-button:hover {
+    background-color: #ffd700; /* Cambia el color en hover */
+}
+
+
+/* Opciones de usuario responsivas */
 .user-options {
     display: flex;
-    gap: 10px;
+    gap: 40px ;
     justify-content: center;
+    align-items: center;
+}
+
+.user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
+    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
+    color: #ffffff; /* Color de los iconos */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-options .icon i:hover {
+    color: #e6d543; /* Color en hover */
+    transform: scale(1.10); /* Aumenta un poco el tamaño al hacer hover */
 }
 
 .user-options a {
-    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(24px, 4vw, 32px); /* Tamaño responsivo */
+    color: #ffffff; /* Color del ícono */
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.user-options img {
-    width: clamp(30px, 5vw, 40px);
-    height: auto;
+.user-options a:hover {
+    color: #e6d543; /* Cambia de color al pasar el ratón */
+    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
 }
+
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto blanco para el saludo */
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+}
+
+.dropdown:hover {
+    color: #e6d543;
+    transform: scale(1.10); 
+    cursor: pointer;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    z-index: 1;
+    border-radius: 8px; /* Bordes redondeados */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* Links dentro del menú desplegable */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: block;
+    font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(12, 1, 1, 0.1); /* Línea divisoria tenue */
+}
+
+/* Color de fondo al pasar el mouse por un enlace */
+.dropdown-content a:hover {
+    background-color: #e6d543 !important; /* Color amarillo */
+    color: #f6f7f8; /* Texto azul al hacer hover */
+}
+
+/* Muestra el menú desplegable al hacer hover en el contenedor */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 /* Contenedor de información del producto */
 .product-container {
@@ -251,12 +362,14 @@ body {
 }
 
 /* Footer */
+/*Estilo para el footer*/
 footer {
-    background-color: #1a2a44;
-    color: white;
+    background-color: #f9fafb;
+    color: #999;
+    padding: 15px;
+    font-size: 14px;
     text-align: center;
-    padding: 10px 0;
+    width: 100%;
     position: relative;
     bottom: 0;
-    width: 100%;
 }

@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Product.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <title>Detalles del Producto</title>
 </head>
 <body>
     <!-- Logos en contenedor separado con fondo blanco -->
     <div class="logo-container">
         <div class="logo-left">
-            <img src="Recursos/LogoFacu.jpg" alt="Logo Izquierdo">
+            <img src="../Recursos/LogoFacu.jpg" alt="Logo Izquierdo">
         </div>
         <div class="logo-right">
-            <img src="Recursos/Logouni.jpg" alt="Logo Derecho">
+            <img src="../Recursos/Logouni.jpg" alt="Logo Derecho">
         </div>
     </div>
 
@@ -29,83 +30,70 @@
 
         <div class="search-bar">
             <input type="text" placeholder="Buscar productos...">
-            <button type="submit">&#128269;</button> <!-- Icono de búsqueda -->
+            <button type="submit" class="search-button">
+                    <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
+            </button>
         </div>
     
         <div class="user-options">
-            <a href="#"><img src="Recursos/carrito-de-compras.png" alt="Usuario"></a>
-            <a href="#"><img src="Recursos/usuario.png" alt="Carrito"></a>
-        </div>
+                <a href="#" class="icon"><i class='bx bx-cart'></i></a>
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="form-group text-center">
+                    <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                    </div>
+
+                <?php endif; ?>
+            </div>
     </header>
 
     <!-- Asegúrate de que estos elementos existan en tu HTML -->
-<div class="product-container">
-    <div class="product-image">
-        <img src="" alt="Imagen del producto">
-    </div>
-    <div class="product-info">
-        <h2 class="product-name"></h2>
-        <div class="product-details">
-            <p class="product-description-text"></p>
-            <div class="price-info">
-                <span class="current-price"></span>
-            </div>
-            <p class="product-stock">Stock: <span class="stock-amount"></span></p>
-            <div class="quantity-container">
-                <input type="number" value="1" min="1">
-                <button class="buy-now-btn">Comprar ahora</button>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="" alt="Imagen del producto">
+        </div>
+        <div class="product-info">
+            <h2 class="product-name"></h2>
+            <div class="product-details">
+                <p class="product-description-text"></p>
+                <div class="price-info">
+                    <span class="current-price"></span>
+                </div>
+                <p class="product-stock">Stock: <span class="stock-amount"></span></p>
+                <div class="quantity-container">
+                    <input type="number" value="1" min="1">
+                    <button class="buy-now-btn">Comprar ahora</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Sección de comentarios -->
-<div class="comments-section">
-    <div class="add-comment">
-        <h3>Agregar un comentario</h3>
-        <textarea placeholder="Escribe tu comentario aquí..."></textarea>
-        <button class="submit-comment-btn">Enviar</button>
+    <!-- Sección de comentarios -->
+    <div class="comments-section">
+        <div class="add-comment">
+            <h3>Agregar un comentario</h3>
+            <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+            <button class="submit-comment-btn">Enviar</button>
+        </div>
+        <div class="comments-container">
+            <h3>Comentarios</h3>
+            <!-- Los comentarios se cargarán aquí -->
+        </div>
     </div>
-    <div class="comments-container">
-        <h3>Comentarios</h3>
-        <!-- Los comentarios se cargarán aquí -->
-    </div>
-</div>
 
-<script>
-    // Función para cargar el JSON
-    async function cargarProducto() {
-        try {
-            const response = await fetch('Product.json');
-            const data = await response.json();
-            const producto = data.producto;
-
-            // Actualizar el contenido de la página con la información del producto
-            document.querySelector('.product-name').textContent = producto.nombre;
-            document.querySelector('.product-description-text').textContent = producto.descripcion;
-            document.querySelector('.current-price').textContent = `$${producto.precio_actual.toFixed(2)}`;
-            document.querySelector('.stock-amount').textContent = producto.stock;
-            document.querySelector('.product-image img').src = producto.imagen;
-
-            // Cargar comentarios
-            const commentsContainer = document.querySelector('.comments-container');
-            producto.comentarios.forEach(comentario => {
-                const commentDiv = document.createElement('div');
-                commentDiv.classList.add('comment');
-                commentDiv.innerHTML = `<p><strong>${comentario.usuario}:</strong> ${comentario.texto}</p>`;
-                commentsContainer.appendChild(commentDiv);
-            });
-        } catch (error) {
-            console.error('Error al cargar el producto:', error);
-        }
-    }
-
-    // Llamar a la función al cargar la página
-    window.onload = cargarProducto;
-</script>
-
-    <footer>
-        <!-- Aquí puedes agregar el contenido del pie de página si es necesario -->
+    <footer class="footer">
+            <div class="container text-center">
+                <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
+            </div>
     </footer>
 </body>
 </html>
