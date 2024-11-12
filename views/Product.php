@@ -65,6 +65,14 @@
             <h2 class="product-name"></h2>
             <div class="product-details">
                 <p class="product-description-text"></p>
+                <div class="product-id">
+                    <span><strong>ID del Vendedor:</strong></span>
+                    <span id="vendedor-id">[Vendedor ID]</span> <!-- Deja este campo vacío para completarlo más adelante -->
+                </div>
+                <div class="product-category">
+                    <span><strong>Categoría:</strong></span>
+                    <span id="categoria">[Categoría]</span> <!-- Deja este campo vacío para completarlo más adelante -->
+                </div>
                 <div class="price-info">
                     <span class="current-price"></span>
                 </div>

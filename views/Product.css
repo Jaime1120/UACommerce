@@ -6,7 +6,6 @@
 }
 
 body {
-    /*font-family: Arial, sans-serif;*/
     font-family: 'Poppins', sans-serif;
 }
 
@@ -17,17 +16,17 @@ body {
     align-items: center;
     padding: 10px 20px;
     background-color: white;
-    flex-wrap: wrap; /* Permite que los logos se apilen en pantallas pequeñas */
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .logo-left img {
-    width: min(100px, 30vw); /* Responsive usando min() */
+    width: min(100px, 30vw);
     height: auto;
 }
 
 .logo-right img {
-    width: min(250px, 50vw); /* Responsive usando min() */
+    width: min(250px, 50vw);
     height: auto;
 }
 
@@ -37,11 +36,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
-    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
+    padding: clamp(10px, 2.9vw, 35px);
     min-height: 100px;
     border-radius: 5px;
-    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -50,18 +48,17 @@ body {
     list-style-type: none;
     display: flex;
     gap: clamp(10px, 2vw, 20px);
-    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .nav-menu ul li a {
     color: white;
     text-decoration: none;
-    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-size: clamp(16px, 2vw, 18px);
     font-style: italic;
-    /*font-family: 'Poppins', sans-serif;*/
     padding: 5px 10px;
-    white-space: nowrap; /* Evita que los textos se rompan */
+    white-space: nowrap;
 }
 
 .nav-menu ul li a:hover {
@@ -77,7 +74,7 @@ body {
     border-radius: 5px;
     overflow: hidden;
     width: 100%;
-    max-width: 500px; /* Máximo ancho en pantallas grandes */
+    max-width: 500px;
 }
 
 .search-bar input {
@@ -98,55 +95,53 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(20px, 2.5vw, 24px); /* Tamaño del icono responsivo */
+    font-size: clamp(20px, 2.5vw, 24px);
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .search-bar .search-button:hover {
-    background-color: #ffd700; /* Cambia el color en hover */
+    background-color: #ffd700;
 }
-
 
 /* Opciones de usuario responsivas */
 .user-options {
     display: flex;
-    gap: 40px ;
+    gap: 40px;
     justify-content: center;
     align-items: center;
 }
 
-.user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
-    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
-    color: #ffffff; /* Color de los iconos */
+.user-options .icon i {
+    font-size: clamp(30px, 4vw, 38px);
+    color: #ffffff;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .user-options .icon i:hover {
-    color: #e6d543; /* Color en hover */
-    transform: scale(1.10); /* Aumenta un poco el tamaño al hacer hover */
+    color: #e6d543;
+    transform: scale(1.10);
 }
 
 .user-options a {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(24px, 4vw, 32px); /* Tamaño responsivo */
-    color: #ffffff; /* Color del ícono */
+    font-size: clamp(24px, 4vw, 32px);
+    color: #ffffff;
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .user-options a:hover {
-    color: #e6d543; /* Cambia de color al pasar el ratón */
-    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
+    color: #e6d543;
+    transform: scale(1.1);
 }
-
 
 /* Menú desplegable */
 .dropdown {
     position: relative;
     display: inline-block;
-    color: white; /* Texto blanco para el saludo */
-    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    color: white;
+    font-size: clamp(16px, 2vw, 18px);
     font-style: italic;
 }
 
@@ -156,73 +151,35 @@ body {
     cursor: pointer;
 }
 
-/* Contenedor del menú desplegable */
 .dropdown-content {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: absolute;
     min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 1;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-
-/* Links dentro del menú desplegable */
 .dropdown-content a {
     padding: 12px 16px;
     text-decoration: none;
     border-radius: 8px;
     display: block;
-    font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
+    font-size: clamp(14px, 1.5vw, 16px);
     transition: background-color 0.3s ease;
-    border-bottom: 1px solid rgba(12, 1, 1, 0.1); /* Línea divisoria tenue */
-}
-
-/* Color de fondo al pasar el mouse por un enlace */
-.dropdown-content a:hover {
-    background-color: #e6d543 !important; /* Color amarillo */
-    color: #f6f7f8; /* Texto azul al hacer hover */
-}
-
-/* Muestra el menú desplegable al hacer hover en el contenedor */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Estilos para el menú desplegable */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 5px;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 10px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(12, 1, 1, 0.1);
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: #e6d543 !important;
+    color: #f6f7f8;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 
 /* Contenedor de información del producto */
 .product-container {
@@ -234,8 +191,9 @@ body {
     border: 1px solid #e5e5e5;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-    gap: 20px; /* Espacio entre imagen y detalles */
+    border-radius: 8px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .product-info {
@@ -248,7 +206,7 @@ body {
 .product-details {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaciado entre elementos del detalle */
+    gap: 15px;
 }
 
 .product-image img {
@@ -262,6 +220,25 @@ body {
     margin-bottom: 10px;
 }
 
+.product-id,
+.product-category {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.product-id span,
+.product-category span {
+    margin-right: 10px;
+}
+
+.product-id strong,
+.product-category strong {
+    font-weight: bold;
+}
 
 .current-price {
     font-size: 24px;
@@ -276,39 +253,35 @@ body {
     margin-bottom: 20px;
 }
 
-/* Estilización del stock */
 .product-stock {
     font-size: 18px;
     font-weight: bold;
     color: #28a745;
-    margin-bottom: 10px; /* Espaciado inferior */
+    margin-bottom: 10px;
 }
 
-/* Estilización del botón "Comprar ahora" */
 .buy-now-btn {
     background-color: #0056b3;
     color: #fff;
-    padding: 10px 20px; /* Espaciado interno mayor para un botón más visible */
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    height: auto; /* Altura adaptable */
-    width: auto; /* Ancho adaptable */
-    font-size: 18px; /* Texto más grande */
-    margin-top: 10px; /* Espaciado superior */
+    height: auto;
+    width: auto;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
-/* Hover para el botón */
 .buy-now-btn:hover {
     background-color: #f9e105;
 }
 
-/* Contenedor de cantidad y botón alineados */
 .quantity-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre el stock y el botón */
+    gap: 10px;
 }
 
 .quantity-container input {
@@ -325,6 +298,7 @@ body {
     padding: 15px;
     background-color: #f8f9fa;
     border-radius: 8px;
+    flex-wrap: wrap;
 }
 
 .add-comment {
@@ -362,7 +336,6 @@ body {
 }
 
 /* Footer */
-/*Estilo para el footer*/
 footer {
     background-color: #f9fafb;
     color: #999;
@@ -372,4 +345,39 @@ footer {
     width: 100%;
     position: relative;
     bottom: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-container, .user-options, .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+
+    .search-bar, .comments-section, .product-info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu ul {
+        gap: 5px;
+    }
+
+    .user-options {
+        gap: 20px;
+    }
+
+    .buy-now-btn {
+        padding: 8px 16px;
+    }
 }
