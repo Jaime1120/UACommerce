@@ -26,7 +26,7 @@
                 <ul>
                     <li><a href="#">Lo más top</a></li>
                     <li><a href="#">Mis compras</a></li>
-                    <li><a href="views/categorias.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
+                    <li><a href="../views/CategoriasView.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
                 </ul>
             </nav>
             <div class="search-bar">
