@@ -137,6 +137,9 @@ body {
     transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
 }
 
+
+
+
 /* Contenedor de productos responsivo */
 .product-container {
     display: grid;

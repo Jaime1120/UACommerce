@@ -4,62 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .profile-container {
-            width: 350px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .profile-header {
-            background-color: #4A90E2;
-            padding: 20px;
-            text-align: center;
-            color: #ffffff;
-        }
-        .profile-header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-        .profile-content {
-            padding: 20px;
-        }
-        .profile-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .profile-row:last-child {
-            border-bottom: none;
-        }
-        .profile-row label {
-            font-weight: bold;
-            color: #555;
-        }
-        .profile-row .value {
-            color: #777;
-        }
-        .profile-footer {
-            background-color: #f9fafb;
-            padding: 15px;
-            text-align: center;
-            font-size: 14px;
-            color: #999;
-        }
-    </style>
+    <link rel="stylesheet" href="../views/profileView.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+
 </head>
 <body>
+
+<header>
+        <div class="logo-container">
+            <div class="logo-left">
+                <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+            </div>
+            <div class="logo-right">
+                <img src="../Recursos/Logouni.jpg" alt="Logo Página">
+            </div>
+        </div>
+        <div class="header-container">
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Lo más top</a></li>
+                    <li><a href="#">Historial</a></li>
+                    <li><a href="views/categorias.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos...">
+                <button type="submit" class="search-button">
+                    <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
+                </button>
+            </div>
+            <div class="user-options">
+                <a href="#" class="icon"><i class='bx bx-cart'></i></a>
+
+                <?php if (isset($_SESSION['user_name'])): ?>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="form-group text-center">
+                    <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                    </div>
+
+                <?php endif; ?>
+            </div>
+        </div>
+    </header>
+
     <div class="profile-container">
         <div class="profile-header">
             <h1>Perfil de Usuario</h1>

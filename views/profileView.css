@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+   
+}
+
+/* Header y logos - Con ajustes responsivos */
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    flex-wrap: wrap; /* Permite que los logos se apilen en pantallas pequeñas */
+    gap: 10px;
+}
+
+.logo-left img {
+    width: min(100px, 30vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.logo-right img {
+    width: min(250px, 50vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.header-container {
+    background-color: #1a2a44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
+    min-height: 100px;
+    border-radius: 5px;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    gap: 15px;
+}
+
+/* Navegación responsiva */
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
+    justify-content: center;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+    /*font-family: 'Poppins', sans-serif;*/
+    padding: 5px 10px;
+    white-space: nowrap; /* Evita que los textos se rompan */
+}
+
+.nav-menu ul li a:hover {
+    color: #ffd700;
+    transform: scale(1.10);
+}
+
+/* Barra de búsqueda responsiva */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px; /* Máximo ancho en pantallas grandes */
+}
+
+.search-bar input {
+    padding: clamp(8px, 2vw, 12px);
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-bar .search-button {
+    background-color: #fff200;
+    color: #1a2a44;
+    border: none;
+    padding: clamp(8px, 2vw, 12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 2.5vw, 24px); /* Tamaño del icono responsivo */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar .search-button:hover {
+    background-color: #ffd700; /* Cambia el color en hover */
+}
+
+
+/* Opciones de usuario responsivas */
+.user-options {
+    display: flex;
+    gap: 40px ;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
+    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
+    color: #ffffff; /* Color de los iconos */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-options .icon i:hover {
+    color: #e6d543; /* Color en hover */
+    transform: scale(1.10); /* Aumenta un poco el tamaño al hacer hover */
+}
+
+.user-options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(24px, 4vw, 32px); /* Tamaño responsivo */
+    color: #ffffff; /* Color del ícono */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-options a:hover {
+    color: #e6d543; /* Cambia de color al pasar el ratón */
+    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
+}
+
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto blanco para el saludo */
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+}
+
+.dropdown:hover {
+    color: #e6d543;
+    transform: scale(1.10); 
+    cursor: pointer;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    z-index: 1;
+    border-radius: 8px; /* Bordes redondeados */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+
+.profile-container {
+    width: 350px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.profile-header {
+    background-color: #4A90E2;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.profile-header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.profile-content {
+    padding: 20px;
+}
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.profile-row:last-child {
+    border-bottom: none;
+}
+.profile-row label {
+    font-weight: bold;
+    color: #555;
+}
+.profile-row .value {
+    color: #777;
+}
+.profile-footer {
+    background-color: #f9fafb;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+}
