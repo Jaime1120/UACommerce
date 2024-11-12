@@ -39,7 +39,7 @@ session_start();
                 </button>
             </div>
             <div class="user-options">
-                <a href="#" class="icon"><i class='bx bx-cart'></i></a>
+                <a href="views/carritoView.php" class="icon"><i class='bx bx-cart'></i></a>
 
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="dropdown">

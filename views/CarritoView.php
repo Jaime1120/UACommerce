@@ -59,29 +59,33 @@
         </header>
 
         <main>
-            <div class="carrito-container">
-                <div class="product-list">
-                    <h1>Carrito</h1>
-                    <ul>
-                        <?php
-                        if (isset($_SESSION['carrito'])) {
-                            foreach ($_SESSION['carrito'] as $producto) {
-                                echo '<li>';
-                                echo '<span class="product-name">' . $producto['name'] . '</span>';
-                                echo '<span class="product-quantity">Cantidad: ' . $producto['quantity'] . '</span>';
-                                echo '<span class="product-price">Precio: $' . $producto['price'] . '</span>';
-                                echo '</li>';
-                            }
+        <div class="carrito-container">
+            <div class="product-list">
+                <h1>Carrito</h1>
+                <ul>
+                    <?php
+                    if (isset($_SESSION['user_name']) && isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+                        // Mostrar productos si el carrito no está vacío
+                        foreach ($_SESSION['carrito'] as $producto) {
+                            echo '<li>';
+                            echo '<span class="product-name">' . $producto['name'] . '</span>';
+                            echo '<span class="product-quantity">Cantidad: ' . $producto['quantity'] . '</span>';
+                            echo '<span class="product-price">Precio: $' . $producto['price'] . '</span>';
+                            echo '</li>';
                         }
-                        ?>
-                    </ul>
-                </div>
-
-                <div class="price-container">
-                    <h2>Total:</h2>
-                    <span id="total-amount"></span>
-                </div>
+                    } else {
+                        // Mostrar mensaje si el carrito está vacío o el usuario no ha iniciado sesión
+                        echo '<p>Inicia sesión para ver el contenido de tu carrito.</p>';
+                    }
+                    ?>
+                </ul>
             </div>
+
+            <div class="price-container">
+                <h2>Total:</h2>
+                <span id="total-amount"></span>
+            </div>
+        </div>
         </main>
 
     </body>
