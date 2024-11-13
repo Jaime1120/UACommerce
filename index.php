@@ -63,14 +63,7 @@ session_start();
     <!-- Sección de cartas de productos -->
     <div class="product-container">
         <div class="product-card" onclick="location.href='Product.php'">
-            <img class="product-img" >
-            <h3>Producto 1</h3>
-            <p>$100.00</p>
-            <p>Descripción breve del producto 1. Este es un gran producto.</p>
-            <div class="card-buttons">
-                <button class="add-to-cart">Agregar al carrito</button>
-                <button class="remove-from-cart">Quitar del carrito</button>
-            </div>
+            
         </div>
     
     </div>

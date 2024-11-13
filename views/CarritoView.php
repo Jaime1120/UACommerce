@@ -64,17 +64,11 @@
                 <h1>Carrito</h1>
                 <ul>
                     <?php
-                    if (isset($_SESSION['user_name']) && isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
-                        // Mostrar productos si el carrito no está vacío
-                        foreach ($_SESSION['carrito'] as $producto) {
-                            echo '<li>';
-                            echo '<span class="product-name">' . $producto['name'] . '</span>';
-                            echo '<span class="product-quantity">Cantidad: ' . $producto['quantity'] . '</span>';
-                            echo '<span class="product-price">Precio: $' . $producto['price'] . '</span>';
-                            echo '</li>';
-                        }
+                    if (isset($_SESSION['user_name'])) {
+                        // Si el usuario está logueado, muestra el contenido del carrito
+                        echo '<p>Contenido del carrito...</p>'; // Aquí iría el código para mostrar el carrito de compras
                     } else {
-                        // Mostrar mensaje si el carrito está vacío o el usuario no ha iniciado sesión
+                        // Si el usuario no está logueado, muestra el mensaje
                         echo '<p>Inicia sesión para ver el contenido de tu carrito.</p>';
                     }
                     ?>
