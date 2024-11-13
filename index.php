@@ -52,7 +52,7 @@ session_start();
                     </div>
                 <?php else: ?>
                     <div class="form-group text-center">
-                    <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                    <a href="views/loginView.php" class="icon"><i class='bx bx-user'></i></a>
                     </div>
 
                 <?php endif; ?>
