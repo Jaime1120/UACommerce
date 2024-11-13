@@ -16,18 +16,20 @@
         <header>
             <div class="logo-container">
                 <div class="logo-left">
-                    <img src="Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                    <a href="../index.php">
+                        <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                    </a>
                 </div>
                 <div class="logo-right">
-                    <img src="Recursos/Logouni.jpg" alt="Logo Página">
+                <img src="../Recursos/Logouni.jpg" alt="Logo Página">
                 </div>
             </div>
             <div class="header-container">
                 <nav class="nav-menu">
                     <ul>
                         <li><a href="#">Lo más top</a></li>
-                        <li><a href="#">Historial</a></li>
-                        <li><a href="views/categorias.php">Categorías</a></li>
+                        <li><a href="#">Mis compras</a></li>
+                        <li><a href="CategoriasView.php">Categorías</a></li>
                     </ul>
                 </nav>
                 <div class="search-bar">
@@ -40,24 +42,22 @@
                     <a href="#" class="icon"><i class='bx bx-cart'></i></a>
 
                     <?php if (isset($_SESSION['user_name'])): ?>
-                        <div class="dropdown">
-                            <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
-                            <div class="dropdown-content">
-                                <a href="/UACommerce/controllers/profile.php">Perfil</a>
-                                <a href="settings.php">Configuración</a>
-                                <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
-                            </div>
+                    <div class="dropdown">
+                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <div class="dropdown-content">
+                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
+                            <a href="settings.php">Configuración</a>
+                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
                         </div>
+                    </div>
                     <?php else: ?>
                         <div class="form-group text-center">
                         <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
                         </div>
-
                     <?php endif; ?>
                 </div>
             </div>
         </header>
-
         <main>
         <div class="carrito-container">
             <div class="product-list">
@@ -66,10 +66,20 @@
                     <?php
                     if (isset($_SESSION['user_name'])) {
                         // Si el usuario está logueado, muestra el contenido del carrito
-                        echo '<p>Contenido del carrito...</p>'; // Aquí iría el código para mostrar el carrito de compras
+                        echo '<table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                        echo '</tbody></table>';
                     } else {
                         // Si el usuario no está logueado, muestra el mensaje
-                        echo '<p>Inicia sesión para ver el contenido de tu carrito.</p>';
+                        echo '<p><a href="../controllers/login.php">Inicia sesión</a> para ver el contenido de tu carrito.</p>';
                     }
                     ?>
                 </ul>
