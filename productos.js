@@ -8,7 +8,7 @@ fetch('APIs/all_products.php')
           const productCard = document.createElement('div');
           productCard.classList.add('product-card');
 
-          // Verificar si el producto tiene una URL de imagen, si no, usar 'default.jpg'
+          // Obtener la imagen URL
           const imagenUrl = product.imagen_url ? product.imagen_url : 'Recursos/default.png';
 
           productCard.innerHTML = `

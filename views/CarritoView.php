@@ -72,7 +72,6 @@
                                     <th>Producto</th>
                                     <th>Cantidad</th>
                                     <th>Precio Unitario</th>
-                                    <th>Subtotal</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -84,13 +83,11 @@
                     ?>
                 </ul>
             </div>
-
             <div class="price-container">
                 <h2>Total:</h2>
                 <span id="total-amount"></span>
             </div>
         </div>
         </main>
-
     </body>
 </html>
