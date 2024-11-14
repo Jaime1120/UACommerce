@@ -11,20 +11,9 @@
 <body>
 
 <header>
-<<<<<<< Updated upstream
-        <div class="logo-container">
-            <div class="logo-left">
-            <a href="../index.php">
-                <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
-            </div>
-            <div class="logo-right">
-                <img src="../Recursos/Logouni.jpg" alt="Logo Página">
-            </div>
-=======
     <div class="logo-container">
         <div class="logo-left">
             <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
->>>>>>> Stashed changes
         </div>
         <div class="logo-right">
             <img src="../Recursos/Logouni.jpg" alt="Logo Página">
