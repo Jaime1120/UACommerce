@@ -28,14 +28,14 @@ session_start();
             <nav class="nav-menu">
                 <ul>
                     <li><a href="#">Lo más top</a></li>
-                    <li><a href="#">Historial</a></li>
-                    <li><a href="views/categoriasView.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
+                    <li><a href="#">Mis compras</a></li>
+                    <li><a href="views/categoriasView.php">Categorías</a></li>
                 </ul>
             </nav>
             <div class="search-bar">
                 <input type="text" placeholder="Buscar productos...">
                 <button type="submit" class="search-button">
-                    <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
+                    <i class='bx bx-search-alt-2'></i>
                 </button>
             </div>
             <div class="user-options">
