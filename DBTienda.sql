@@ -19,6 +19,17 @@ CREATE TABLE Categorias (
     nombre_categoria ENUM('dulces', 'postres', 'bebidas', 'comida', 'papeleria', 'bisuteria', 'servicios', 'libros') NOT NULL
 );
 
+INSERT INTO Categorias (nombre_categoria) VALUES 
+('dulces'),
+('postres'),
+('bebidas'),
+('comida'),
+('papeleria'),
+('bisuteria'),
+('servicios'),
+('libros');
+
+
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY AUTO_INCREMENT,
     id_vendedor INT,
