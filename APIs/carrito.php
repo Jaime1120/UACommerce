@@ -17,28 +17,28 @@ if ($conn->connect_error) {
 // Obtener el método de solicitud
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Obtener el ID del usuario de la URL (ejemplo: Api.php?id_usuario=1)
-$id_usuario = 1;
+// Obtener el ID del comprador de la URL (ejemplo: Api.php?id_comprador=1)
+$id_comprador = 2;
 
 switch ($method) {
-  // Obtener productos relacionados a un usuario por ID
+  // Obtener pedidos relacionados a un comprador por ID
   case 'GET':
-    if ($id_usuario > 0) {
-      // Consulta SQL para obtener los productos relacionados con el usuario
-      $sql = "SELECT * FROM productos WHERE id_vendedor = $id_usuario";
+    if ($id_comprador > 0) {
+      // Consulta SQL para obtener los pedidos relacionados con el comprador
+      $sql = "SELECT * FROM pedidos WHERE id_comprador = $id_comprador";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
-        $productos = array();
+        $pedidos = array();
         while ($row = $result->fetch_assoc()) {
-          $productos[] = $row;
+          $pedidos[] = $row;
         }
-        echo json_encode($productos);
+        echo json_encode($pedidos);
       } else {
-        echo json_encode(array('message' => 'No se encontraron productos para este usuario'));
+        echo json_encode(array('message' => 'No se encontraron pedidos para este comprador'));
       }
     } else {
-      echo json_encode(array('message' => 'ID de usuario inválido'));
+      echo json_encode(array('message' => 'ID de comprador inválido'));
     }
     break;
 
