@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 // Obtener el método de solicitud
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Obtener el ID del producto de la URL (ejemplo: Api.php?id_producto=1)
-$id_producto = 1;
+// Obtener el ID del producto de la URL (ejemplo: Product.php?id=1)
+$id_producto = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 switch ($method) {
   // Obtener un producto por ID

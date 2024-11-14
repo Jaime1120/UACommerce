@@ -8,7 +8,10 @@ fetch('APIs/all_products.php')
           const productCard = document.createElement('div');
           productCard.classList.add('product-card');
 
-          // Obtener la imagen URL
+          // Agrega el id del producto como atributo de datos
+          productCard.dataset.productId = product.id_producto;
+
+          // Verificar si el producto tiene una URL de imagen, si no, usar 'default.jpg'
           const imagenUrl = product.imagen_url ? product.imagen_url : 'Recursos/default.png';
 
           productCard.innerHTML = `
@@ -21,6 +24,11 @@ fetch('APIs/all_products.php')
                   <button class="remove-from-cart">Quitar del carrito</button>
               </div>
           `;
+
+          // Agrega el evento de clic para redirigir a otra vista con el id_producto
+          productCard.addEventListener('click', () => {
+              window.location.href = `views/Product.php?id=${product.id_producto}`;
+          });
 
           productContainer.appendChild(productCard);
       });
