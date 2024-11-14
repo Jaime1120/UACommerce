@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../views/profileView.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-
 </head>
 <body>
 
 <header>
+<<<<<<< Updated upstream
         <div class="logo-container">
             <div class="logo-left">
             <a href="../index.php">
@@ -20,43 +20,50 @@
             <div class="logo-right">
                 <img src="../Recursos/Logouni.jpg" alt="Logo Página">
             </div>
+=======
+    <div class="logo-container">
+        <div class="logo-left">
+            <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+>>>>>>> Stashed changes
         </div>
-        <div class="header-container">
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="#">Lo más top</a></li>
-                    <li><a href="#">Mis compras</a></li>
-                    <li><a href="../views/CategoriasView.php">Categorías</a></li> <!--modificacion Oscar , añadí Categorias.php-->
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar productos...">
-                <button type="submit" class="search-button">
-                    <i class='bx bx-search-alt-2'></i> <!-- Icono de lupa de Boxicons -->
-                </button>
-            </div>
-            <div class="user-options">
-                <a href="#" class="icon"><i class='bx bx-cart'></i></a>
-
-                <?php if (isset($_SESSION['user_name'])): ?>
-                    <div class="dropdown">
-                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
-                        <div class="dropdown-content">
-                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
-                            <a href="settings.php">Configuración</a>
-                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
-                        </div>
-                    </div>
-                <?php else: ?>
-                    <div class="form-group text-center">
-                    <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
-                    </div>
-
-                <?php endif; ?>
-            </div>
+        <div class="logo-right">
+            <img src="../Recursos/Logouni.jpg" alt="Logo Página">
         </div>
-    </header>
+    </div>
+    <div class="header-container">
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Lo más top</a></li>
+                <li><a href="#">Mis compras</a></li>
+                <li><a href="../views/CategoriasView.php">Categorías</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos...">
+            <button type="submit" class="search-button">
+                <i class='bx bx-search-alt-2'></i>
+            </button>
+        </div>
+        <div class="user-options">
+            <a href="#" class="icon"><i class='bx bx-cart'></i></a>
+            <?php if (isset($_SESSION['user_name'])): ?>
+                <div class="dropdown">
+                    <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                    <div class="dropdown-content">
+                        <a href="/UACommerce/controllers/profile.php">Perfil</a>
+                        <a href="settings.php">Configuración</a>
+                        <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+            <?php endif; ?>
+        </div>
+    </div>
+</header>
 
+<!-- Contenedor principal con un margen superior para separar del header -->
+<div class="perfil-usuario">
     <div class="profile-container">
         <div class="profile-header">
             <h1>Perfil de Usuario</h1>
@@ -98,10 +105,19 @@
                 <label>Fecha de Registro:</label>
                 <span class="value"><?= htmlspecialchars($userData['fecha_registro']); ?></span>
             </div>
-        </div>
-        <div class="profile-footer">
-            © 2024 - Perfil de Usuario
+            <!-- Botón de redirección -->
+            <div class="button-container">
+                <a href="URL_DE_LA_VISTA_DE_DESTINO" class="redirect-button">Ir a la siguiente vista</a>
+            </div>
         </div>
     </div>
+    </div>
+
+    <footer class="footer">
+            <div class="container text-center">
+                <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
+            </div>
+    </footer>
+
 </body>
 </html>
