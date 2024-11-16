@@ -63,24 +63,24 @@ session_start();
     <!-- Asegúrate de que estos elementos existan en tu HTML -->
     <div class="product-container">
         <div class="product-image">
-            <img src="" alt="Imagen del producto">
+            <img src="" alt="Imagen del producto" id="product-img">
         </div>
         <div class="product-info">
-            <h2 class="product-name"></h2>
+            <h2 class="product-name" id="product-name"></h2>
             <div class="product-details">
-                <p class="product-description-text"></p>
+                <p class="product-description-text" id="product-description"></p>
                 <div class="product-id">
                     <span><strong>ID del Vendedor:</strong></span>
-                    <span id="vendedor-id">[Vendedor ID]</span> <!-- Deja este campo vacío para completarlo más adelante -->
+                    <span id="vendedor-id"></span>
                 </div>
                 <div class="product-category">
                     <span><strong>Categoría:</strong></span>
-                    <span id="categoria">[Categoría]</span> <!-- Deja este campo vacío para completarlo más adelante -->
+                    <span id="category"></span>
                 </div>
                 <div class="price-info">
-                    <span class="current-price"></span>
+                    <span class="current-price" id="price"></span>
                 </div>
-                <p class="product-stock">Stock: <span class="stock-amount"></span></p>
+                <p class="product-stock">Stock: <span id="stock"></span></p>
                 <div class="quantity-container">
                     <input type="number" value="1" min="1">
                     <button class="buy-now-btn">Comprar ahora</button>
@@ -103,9 +103,38 @@ session_start();
     </div>
 
     <footer class="footer">
-            <div class="container text-center">
-                <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
-            </div>
+        <div class="container text-center">
+            <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
+        </div>
     </footer>
+
+    <script>
+        // Obtener el ID del producto de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // Verificar si se obtiene un ID válido
+        if (productId) {
+            fetch(`http://localhost/UACommerce/APIs/one_product.php?id=${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Si el producto existe, actualizar la página con los datos
+                    if (data && data.id_producto) {
+                        document.getElementById('product-img').src = data.imagen_url || 'Recursos/default.png';
+                        document.getElementById('product-name').textContent = data.nombre_producto;
+                        document.getElementById('product-description').textContent = data.descripcion;
+                        document.getElementById('vendedor-id').textContent = data.id_vendedor;  // El ID del vendedor
+                        document.getElementById('category').textContent = "Categoría no disponible";  // No hay categoría en tu JSON, puedes agregarlo si es necesario
+                        document.getElementById('price').textContent = `$${data.precio}`;
+                        document.getElementById('stock').textContent = data.stock; // Stock disponible
+                    } else {
+                        alert('Producto no encontrado');
+                    }
+                })
+                .catch(error => console.error('Error al obtener los datos del producto:', error));
+        } else {
+            alert('ID de producto no válido');
+        }
+    </script>
 </body>
 </html>
