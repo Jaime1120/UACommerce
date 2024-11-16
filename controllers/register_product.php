@@ -14,15 +14,15 @@ if ($conn->connect_error) {
 
 // Verificar si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir y limpiar los datos del formulario
-    $nombre_producto = $conn->real_escape_string($_POST['nombre_producto']);
-    $descripcion = $conn->real_escape_string($_POST['descripcion']);
-    $precio = (float) $_POST['precio'];
-    $id_categoria = (int) $_POST['id_categoria'];
-    $stock = (int) $_POST['stock'];
-    $imagen_url = $conn->real_escape_string($_POST['imagen_url']);
+    // Recibir los datos del formulario
+    $nombre_producto = $_POST['nombre_producto'];
+    $descripcion = $_POST['descripcion'];
+    $precio = $_POST['precio'];
+    $id_categoria = $_POST['id_categoria'];
+    $stock = $_POST['stock'];
+    $imagen_url = $_POST['imagen_url'];
 
-    // Aquí asigna el id del vendedor. Asegúrate de que este id exista en la tabla Usuarios.
+    // Asigna el id del vendedor, asegúrate de que este id exista en la tabla Usuarios.
     $id_vendedor = 1; // Reemplaza con el id del usuario vendedor existente.
 
     // Validación básica de campos obligatorios
@@ -30,17 +30,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Por favor completa todos los campos obligatorios con valores válidos.";
         $success = false;
     } else {
-        // Preparar y ejecutar la consulta SQL
-        $sql = "INSERT INTO Productos (id_vendedor, id_categoria, nombre_producto, descripcion, precio, stock, imagen_url)
-                VALUES ($id_vendedor, $id_categoria, '$nombre_producto', '$descripcion', $precio, $stock, '$imagen_url')";
+        // Preparar y ejecutar la consulta SQL con sentencias preparadas
+        $stmt = $conn->prepare("INSERT INTO Productos (id_vendedor, id_categoria, nombre_producto, descripcion, precio, stock, imagen_url) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iissdis", $id_vendedor, $id_categoria, $nombre_producto, $descripcion, $precio, $stock, $imagen_url);
 
-        if ($conn->query($sql) === TRUE) {
+        if ($stmt->execute()) {
             $message = "Producto registrado exitosamente.";
             $success = true;
         } else {
-            $message = "Error al registrar el producto: " . $conn->error;
+            $message = "Error al registrar el producto: " . $stmt->error;
             $success = false;
         }
+
+        // Cerrar la declaración
+        $stmt->close();
     }
 
     // Cerrar la conexión
