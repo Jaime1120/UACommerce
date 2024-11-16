@@ -8,20 +8,20 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UACommerce</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="busqueda.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
+    <header>    
         <div class="logo-container">
             <div class="logo-left">
             <a href="index.php">
-                <img src="Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
             </div>
             <div class="logo-right">
-                <img src="Recursos/Logouni.jpg" alt="Logo Página">
+                <img src="../Recursos/Logouni.jpg" alt="Logo Página">
             </div>
         </div>
         <div class="header-container">
@@ -83,6 +83,6 @@ session_start();
     </footer>
 
 
-    <script src="productos.js"></script>
+    <script src="productosBuscados.js"></script>
 </body>
 </html>
