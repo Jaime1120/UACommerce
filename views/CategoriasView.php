@@ -15,8 +15,8 @@ session_start();
 
 <body>
     <header>
-                    <div class="logo-container">
-                    <div class="logo-left">
+            <div class="logo-container">
+                <div class="logo-left">
                 <a href="../index.php">
                     <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
                 </a>

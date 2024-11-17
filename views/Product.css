@@ -184,50 +184,60 @@ body {
 /* Contenedor de información del producto */
 .product-container {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: flex-start;
+    gap: 20px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    margin: 20px auto;
     border-radius: 8px;
-    gap: 20px;
-    flex-wrap: wrap;
+    max-width: 1000px;
 }
-
-.product-info {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
+/* Imagen del producto */
+.product-image {
+    flex: 1 1 300px; /* Mayor flexibilidad para adaptarse al espacio */
+    max-width: 350px;
+    text-align: center;
     margin-right: 20px;
 }
+.product-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+}
 
-.product-details {
+/* Información del producto */
+.product-info {
+    flex: 2 1 400px; /* Da más espacio a la información en pantallas grandes */
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.product-image img {
-    max-width: 100%;
-    border-radius: 8px;
+.product-name {
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-.product-name {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
 }
 
 .product-id,
-.product-category {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 16px;
+.product-category,
+.price-info,
+.product-stock {
+    flex: 1 1 45%;
     margin-bottom: 10px;
-    color: #555;
 }
 
 .product-id span,
@@ -241,11 +251,11 @@ body {
 }
 
 .current-price {
-    font-size: 24px;
+    font-size: 1.6rem;
     color: #1a2a44;
     font-weight: bold;
-    margin-right: 10px;
 }
+
 
 .product-description-text {
     font-size: 16px;
@@ -254,10 +264,17 @@ body {
 }
 
 .product-stock {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 1.1rem;
     color: #28a745;
-    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Botones y cantidad */
+.quantity-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px;
 }
 
 .buy-now-btn {
@@ -278,17 +295,13 @@ body {
     background-color: #f9e105;
 }
 
-.quantity-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .quantity-container input {
     width: 60px;
-    padding: 5px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center;
 }
 
 /* Sección de comentarios */

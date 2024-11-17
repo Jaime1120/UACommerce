@@ -34,7 +34,7 @@ session_start();
             </nav>
 
             <div class="search-bar">
-                <form action="views/busqueda.php" method="GET">
+                <form action="views/busqueda.php" method="GET"  class="search-bar">
                     <input 
                         type="text" 
                         name="query" 
