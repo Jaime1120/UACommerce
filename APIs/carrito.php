@@ -23,38 +23,33 @@ $id_comprador = isset($_GET['id_comprador']) ? intval($_GET['id_comprador']) : 0
 switch ($method) {
     case 'GET':
         if ($id_comprador > 0) {
-            // Consulta para obtener los detalles del pedido filtrados por id_comprador
+            // Consulta para obtener los productos en el carrito del comprador
             $sql = "
                 SELECT 
-                    dp.id_detalle,
-                    p.id_pedido,
-                    p.fecha_pedido,
-                    p.total AS total_pedido,
-                    prod.id_producto,
-                    prod.nombre_producto,
-                    dp.cantidad,
-                    dp.precio_unitario,
-                    dp.subtotal
+                    c.id_carrito,
+                    c.id_producto,
+                    p.nombre_producto,
+                    c.cantidad,
+                    c.precio_unitario,
+                    (c.cantidad * c.precio_unitario) AS subtotal
                 FROM 
-                    Detalles_Pedido dp
+                    Carrito c
                 INNER JOIN 
-                    Pedidos p ON dp.id_pedido = p.id_pedido
-                INNER JOIN 
-                    Productos prod ON dp.id_producto = prod.id_producto
+                    Productos p ON c.id_producto = p.id_producto
                 WHERE 
-                    p.id_comprador = $id_comprador
+                    c.id_comprador = $id_comprador
             ";
 
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                $detalles = array();
+                $carrito = array();
                 while ($row = $result->fetch_assoc()) {
-                    $detalles[] = $row;
+                    $carrito[] = $row;
                 }
-                echo json_encode($detalles);
+                echo json_encode($carrito);
             } else {
-                echo json_encode(array('message' => 'No se encontraron detalles de pedidos para este comprador.'));
+                echo json_encode(array('message' => 'El carrito está vacío.'));
             }
         } else {
             echo json_encode(array('message' => 'ID del comprador inválido.'));

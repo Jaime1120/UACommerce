@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -62,7 +62,17 @@
             <div class="carrito-container">
                 <div class="product-list">
                     <h1>Carrito</h1>
+                    
                     <?php
+                    // Mostrar notificación si hay mensaje de éxito o error
+                    if (isset($_SESSION['success_message'])) {
+                        echo "<script>alert('" . $_SESSION['success_message'] . "');</script>";
+                        unset($_SESSION['success_message']); // Limpiar el mensaje después de mostrarlo
+                    } elseif (isset($_SESSION['error_message'])) {
+                        echo "<script>alert('" . $_SESSION['error_message'] . "');</script>";
+                        unset($_SESSION['error_message']); // Limpiar el mensaje después de mostrarlo
+                    }
+
                     if (isset($_SESSION['user_id'])) {
                         $user_id = $_SESSION['user_id']; // ID del usuario logueado
                         $api_url = "http://localhost/UACommerce/APIs/carrito.php?id_comprador=$user_id";
@@ -107,7 +117,10 @@
                 <div class="price-container">
                     <h2>Total:</h2>
                     <h2 id="total-amount"><?php echo isset($total) ? '$' . number_format($total, 2) : '$0.00'; ?></h2>
-                    <button class="btn">Comprar ahora</button>
+                    <form action="../APIs/confirmar_compra.php" method="POST">
+                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+                        <button type="submit" class="btn">Comprar</button>
+                    </form>
                 </div>
             </div>
         </main>

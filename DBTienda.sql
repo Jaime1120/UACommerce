@@ -1,7 +1,10 @@
-CREATE DATABASE Tienda;
+DROP DATABASE IF EXISTS tienda;
 
-USE Tienda;
+CREATE DATABASE tienda;
 
+USE tienda;
+
+-- Crear tabla Usuarios
 CREATE TABLE Usuarios (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
@@ -14,11 +17,13 @@ CREATE TABLE Usuarios (
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Crear tabla Categorias
 CREATE TABLE Categorias (
     id_categoria INT PRIMARY KEY AUTO_INCREMENT,
     nombre_categoria ENUM('dulces', 'postres', 'bebidas', 'comida', 'papeleria', 'bisuteria', 'servicios', 'libros') NOT NULL
 );
 
+-- Insertar categorías predeterminadas
 INSERT INTO Categorias (nombre_categoria) VALUES 
 ('dulces'),
 ('postres'),
@@ -29,11 +34,11 @@ INSERT INTO Categorias (nombre_categoria) VALUES
 ('servicios'),
 ('libros');
 
-
+-- Crear tabla Productos
 CREATE TABLE Productos (
     id_producto INT PRIMARY KEY AUTO_INCREMENT,
-    id_vendedor INT,
-    id_categoria INT NOT NULL,  -- Hacer que esta columna sea NOT NULL para asegurar que se asigne una categoría
+    id_vendedor INT NOT NULL,
+    id_categoria INT NOT NULL,
     nombre_producto VARCHAR(100) NOT NULL,
     descripcion TEXT,
     precio DECIMAL(10, 2) NOT NULL,
@@ -41,32 +46,37 @@ CREATE TABLE Productos (
     imagen_url VARCHAR(255),
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_vendedor) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE,
-    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria) ON DELETE RESTRICT -- Impide borrar categorías en uso
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria) ON DELETE RESTRICT
 );
 
+-- Crear tabla Pedidos
 CREATE TABLE Pedidos (
-    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
-    id_comprador INT,
-    fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total DECIMAL(10, 2) NOT NULL,
-    estado ENUM('pendiente', 'pagado', 'activo', 'entregado', 'cancelado') NOT NULL DEFAULT 'pendiente',
-    FOREIGN KEY (id_comprador) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE
-);
-
-CREATE TABLE Detalles_Pedido (
-    id_detalle INT PRIMARY KEY AUTO_INCREMENT,
-    id_pedido INT,
-    id_producto INT,
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_comprador INT NOT NULL,
+    id_producto INT NOT NULL,
     cantidad INT NOT NULL,
-    precio_unitario DECIMAL(10, 2) NOT NULL,
-    subtotal DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido) ON DELETE CASCADE,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    estado ENUM('pendiente', 'completado', 'cancelado') NOT NULL DEFAULT 'pendiente',
+    fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_comprador) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE,
     FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE
 );
 
+-- Crear tabla Carrito
+CREATE TABLE Carrito (
+    id_carrito INT AUTO_INCREMENT PRIMARY KEY,
+    id_comprador INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (id_comprador) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto) ON DELETE CASCADE
+);
+
+-- Crear tabla Pagos
 CREATE TABLE Pagos (
     id_pago INT PRIMARY KEY AUTO_INCREMENT,
-    id_pedido INT,
+    id_pedido INT NOT NULL,
     metodo_pago ENUM('Efectivo', 'paypal', 'transferencia_bancaria') NOT NULL,
     estado_pago ENUM('pendiente', 'completado', 'fallido') NOT NULL DEFAULT 'pendiente',
     monto DECIMAL(10, 2) NOT NULL,
