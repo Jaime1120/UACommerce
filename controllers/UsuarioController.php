@@ -7,40 +7,6 @@ class UsuarioController {
     }
     
     public function register($data) {
-        // Validar campos obligatorios
-        if (empty($data['nombre']) || empty($data['correo_electronico']) || empty($data['contrasena'])) {
-            return ["success" => false, "message" => "Todos los campos obligatorios deben estar completos."];
-        }
-    
-        // Validar nombre
-        if (!preg_match("/^[A-Za-zÀ-ÿ\s]+$/", $data['nombre'])) {
-            return ["success" => false, "message" => "El nombre solo puede contener letras y espacios."];
-        }
-    
-      // Validar correo electrónico
-        if (!filter_var($data['correo_electronico'], FILTER_VALIDATE_EMAIL)) {
-            return ["success" => false, "message" => "Correo electrónico no válido."];
-        }
-
-        // Verificar dominio específico
-        $allowedDomain = 'uacam.mx'; // Cambia esto al dominio permitido
-        $emailDomain = substr(strrchr($data['correo_electronico'], "@"), 1);
-
-        if ($emailDomain !== $allowedDomain) {
-            return ["success" => false, "message" => "Solo se permite correos del dominio $allowedDomain"];
-        }
-
-    
- // Validar contraseña (al menos 8 caracteres, una letra mayúscula y un número)
-        if (!preg_match("/(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}/", $data['contrasena'])) {
-            return ["success" => false, "message" => "La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula y un número."];
-        }
-
-    
-        // Validar teléfono (opcional)
-        if (!empty($data['telefono']) && !preg_match("/^\d{10}$/", $data['telefono'])) {
-            return ["success" => false, "message" => "El teléfono debe contener 10 dígitos numéricos."];
-        }
     
         // Validar si el correo electrónico ya está registrado
         if ($this->usuario->emailExists()) {
