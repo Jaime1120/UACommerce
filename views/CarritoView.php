@@ -59,35 +59,57 @@
             </div>
         </header>
         <main>
-        <div class="carrito-container">
-            <div class="product-list">
-                <h1>Carrito</h1>
-                <ul>
+            <div class="carrito-container">
+                <div class="product-list">
+                    <h1>Carrito</h1>
                     <?php
-                    if (isset($_SESSION['user_name'])) {
-                        // Si el usuario está logueado, muestra el contenido del carrito
-                        echo '<table border="1">
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio Unitario</th>
-                                </tr>
-                            </thead>
-                            <tbody>';
-                        echo '</tbody></table>';
+                    if (isset($_SESSION['user_id'])) {
+                        $user_id = $_SESSION['user_id']; // ID del usuario logueado
+                        $api_url = "http://localhost/UACommerce/APIs/carrito.php?id_comprador=$user_id";
+                        $response = file_get_contents($api_url);
+                        $cart_items = json_decode($response, true);
+
+                        if (isset($cart_items['message'])) {
+                            echo "<p>{$cart_items['message']}</p>";
+                        } else {
+                            echo '<table border="1">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio Unitario</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+
+                            $total = 0;
+                            foreach ($cart_items as $item) {
+                                $subtotal = $item['precio_unitario'] * $item['cantidad'];
+                                $total += $subtotal;
+
+                                echo '<tr>';
+                                echo '<td>' . htmlspecialchars($item['nombre_producto']) . '</td>';
+                                echo '<td>' . htmlspecialchars($item['cantidad']) . '</td>';
+                                echo '<td>$' . number_format($item['precio_unitario'], 2) . '</td>';
+                                echo '<td>$' . number_format($subtotal, 2) . '</td>';
+                                echo '</tr>';
+                            }
+
+                            echo '</tbody></table>';
+                        }
                     } else {
                         // Si el usuario no está logueado, muestra el mensaje
                         echo '<p><a href="../controllers/login.php">Inicia sesión</a> para ver el contenido de tu carrito.</p>';
                     }
                     ?>
-                </ul>
+                </div>
+                <div class="price-container">
+                    <h2>Total:</h2>
+                    <h2 id="total-amount"><?php echo isset($total) ? '$' . number_format($total, 2) : '$0.00'; ?></h2>
+                    <button class="btn">Comprar ahora</button>
+                </div>
             </div>
-            <div class="price-container">
-                <h2>Total:</h2>
-                <span id="total-amount"></span>
-            </div>
-        </div>
         </main>
     </body>
 </html>
