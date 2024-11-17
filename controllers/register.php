@@ -68,6 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!empty($_POST['telefono']) && !preg_match("/^\d{10}$/", $_POST['telefono'])) {
             throw new Exception("El teléfono debe contener 10 dígitos numéricos.");
         }
+
+           // Conectar a la base de datos y crear una instancia del modelo Usuario
+           $database = new Database();
+           $db = $database->getConnection();
+           $usuario = new Usuario($db);
+   
+           // Verificar si el correo electrónico ya existe
+           $usuario->correo_electronico = $_POST['correo_electronico'];
+   
+           if ($usuario->emailExists()) {
+               throw new Exception("El correo electrónico ya está registrado.");
+           }
     
 
         // Guardar todos los datos del formulario en la sesión
