@@ -94,9 +94,11 @@ session_start();
                                 <tbody>';
 
                             $total = 0;
+                            $itemcount = 0;
                             foreach ($cart_items as $item) {
                                 $subtotal = $item['precio_unitario'] * $item['cantidad'];
                                 $total += $subtotal;
+                                $itemcount++;
 
                                 echo '<tr>';
                                 echo '<td>' . htmlspecialchars($item['nombre_producto']) . '</td>';
@@ -117,10 +119,15 @@ session_start();
                 <div class="price-container">
                     <h2>Total:</h2>
                     <h2 id="total-amount"><?php echo isset($total) ? '$' . number_format($total, 2) : '$0.00'; ?></h2>
-                    <form action="../APIs/confirmar_compra.php" method="POST">
-                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-                        <button type="submit" class="btn">Comprar</button>
-                    </form>
+
+                    <?php if (isset($item_count) && $item_count > 0): ?>
+                        <form action="../APIs/confirmar_compra.php" method="POST">
+                            <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+                            <button type="submit" class="btn">Comprar</button>
+                        </form>
+                    <?php else: ?>
+                        <p>Tu carrito está vacío</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </main>
