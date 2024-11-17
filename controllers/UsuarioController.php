@@ -107,5 +107,29 @@ class UsuarioController {
         ];
     }
 
+    public function updateProfile($data) {
+        // Validar campos obligatorios
+        if (empty($data['nombre']) || empty($data['correo_electronico'])) {
+            return ["success" => false, "message" => "Los campos Nombre y Correo Electrónico son obligatorios."];
+        }
+    
+        // Aquí puedes agregar más validaciones si es necesario
+    
+        // Asignar datos al usuario
+        $this->usuario->id = $data['id_usuario']; // Asegúrate de que la clase Usuario tenga una propiedad para el ID
+        $this->usuario->nombre = $data['nombre'];
+        $this->usuario->apellidos = $data['apellidos'];
+        $this->usuario->correo_electronico = $data['correo_electronico'];
+        $this->usuario->direccion = $data['direccion'];
+        $this->usuario->telefono = $data['telefono'];
+        $this->usuario->tipo_usuario = $data['tipo_usuario'];
+    
+        // Intentar actualizar el perfil
+        if ($this->usuario->update()) {
+            return ["success" => true, "message" => "Perfil actualizado exitosamente."];
+        }
+    
+        return ["success" => false, "message" => "Error al actualizar el perfil."];
+    }
 
 }
