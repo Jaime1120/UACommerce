@@ -96,7 +96,7 @@
             </div>
             <!-- Botón de redirección -->
             <div class="button-container">
-                <a href="URL_DE_LA_VISTA_DE_DESTINO" class="redirect-button">Ir a la siguiente vista</a>
+                <a href="../controllers/profileEdit.php" class="redirect-button">Editar Perfil</a>
             </div>
         </div>
     </div>
