@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil de Usuario</title>
-    <link rel="stylesheet" href="../views/profileView.css">
+    <link rel="stylesheet" href="../views/profileViewEdit.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 </head>
@@ -52,54 +52,40 @@
 </header>
 
 <!-- Contenedor principal con un margen superior para separar del header -->
-<div class="perfil-usuario">
-    <div class="profile-container">
-        <div class="profile-header">
-            <h1>Perfil de Usuario</h1>
-        </div>
-        <div class="profile-content">
-            <div class="profile-row">
-                <label>ID Usuario:</label>
-                <span class="value"><?= htmlspecialchars($userData['id_usuario']); ?></span>
-            </div>
+    <div class="profile-content">
+        <form method="POST" action="updateProfile.php"> <!-- Acción del formulario -->
             <div class="profile-row">
                 <label>Nombre:</label>
-                <span class="value"><?= htmlspecialchars($userData['nombre']); ?></span>
+                <input type="text" name="nombre" value="<?= htmlspecialchars($userData['nombre']); ?>" required>
             </div>
             <div class="profile-row">
                 <label>Apellidos:</label>
-                <span class="value"><?= htmlspecialchars($userData['apellidos']); ?></span>
+                <input type="text" name="apellidos" value="<?= htmlspecialchars($userData['apellidos']); ?>" required>
             </div>
             <div class="profile-row">
                 <label>Correo Electrónico:</label>
-                <span class="value"><?= htmlspecialchars($userData['correo_electronico']); ?></span>
-            </div>
-            <div class="profile-row">
-                <label>Contraseña:</label>
-                <span class="value">*******</span>
+                <input type="email" name="correo_electronico" value="<?= htmlspecialchars($userData['correo_electronico']); ?>" required>
             </div>
             <div class="profile-row">
                 <label>Dirección:</label>
-                <span class="value"><?= htmlspecialchars($userData['direccion']); ?></span>
+                <input type="text" name="direccion" value="<?= htmlspecialchars($userData['direccion']); ?>" required>
             </div>
             <div class="profile-row">
                 <label>Teléfono:</label>
-                <span class="value"><?= htmlspecialchars($userData['telefono']); ?></span>
+                <input type="text" name="telefono" value="<?= htmlspecialchars($userData['telefono']); ?>" required>
             </div>
             <div class="profile-row">
                 <label>Tipo de Usuario:</label>
-                <span class="value"><?= htmlspecialchars($userData['tipo_usuario']); ?></span>
+                <select name="tipo_usuario" required>
+                    <option value="comprador" <?= $userData['tipo_usuario'] === 'comprador' ? 'selected' : ''; ?>>Comprador</option>
+                    <option value="vendedor" <?= $userData['tipo_usuario'] === 'vendedor' ? 'selected' : ''; ?>>Vendedor</option>
+                    <!-- Agrega más opciones si es necesario -->
+                </select>
             </div>
-            <div class="profile-row">
-                <label>Fecha de Registro:</label>
-                <span class="value"><?= htmlspecialchars($userData['fecha_registro']); ?></span>
-            </div>
-            <!-- Botón de redirección -->
             <div class="button-container">
-                <a href="../controllers/profileEdit.php" class="redirect-button">Editar Perfil</a>
+                <button type="submit" class="redirect-button">Guardar Cambios</button>
             </div>
-        </div>
-    </div>
+        </form>
     </div>
 
     <footer class="footer">

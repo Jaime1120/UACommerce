@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header y logos - Con ajustes responsivos */
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    flex-wrap: wrap; /* Permite que los logos se apilen en pantallas pequeñas */
+    gap: 10px;
+}
+
+.logo-left img {
+    width: min(100px, 30vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.logo-right img {
+    width: min(250px, 50vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.header-container {
+    background-color: #1a2a44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
+    min-height: 100px;
+    border-radius: 5px;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    gap: 15px;
+}
+
+/* Navegación responsiva */
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
+    justify-content: center;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+    padding: 5px 10px;
+    white-space: nowrap; /* Evita que los textos se rompan */
+}
+
+.nav-menu ul li a:hover {
+    color: #ffd700;
+    transform: scale(1.10);
+}
+
+/* Barra de búsqueda responsiva */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px; /* Máximo ancho en pantallas grandes */
+}
+
+.search-bar input {
+    padding: clamp(8px, 2vw, 12px);
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-bar .search-button {
+    background-color: #fff200;
+    color: #1a2a44;
+    border: none;
+    padding: clamp(8px, 2vw, 12px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 2.5vw, 24px); /* Tamaño del icono responsivo */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.search-bar .search-button:hover {
+    background-color: #ffd700; /* Cambia el color en hover */
+}
+
+/* Opciones de usuario responsivas */
+.user-options {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-options .icon i {
+    font-size: clamp(30px, 4vw, 38px);
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-options .icon i:hover {
+    color: #e6d543;
+    transform: scale(1.10);
+}
+
+.user-options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(24px, 4vw, 32px);
+    color: #ffffff;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-options a:hover {
+    color: #e6d543;
+    transform: scale(1.1);
+}
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto blanco para el saludo */
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+}
+
+.dropdown:hover {
+    color: #e6d543;
+    transform: scale(1.10); 
+    cursor: pointer;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    z-index: 1;
+    border-radius: 8px; /* Bordes redondeados */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Links dentro del menú desplegable */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: block;
+    font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(12, 1, 1, 0.1); /* Línea divisoria tenue */
+}
+
+/* Color de fondo al pasar el mouse por un enlace */
+.dropdown-content a:hover {
+    background-color: #e6d543 !important; /* Color amarillo */
+    color: #f6f7f8; /* Texto azul al hacer hover */
+}
+
+/* Muestra el menú desplegable al hacer hover en el contenedor */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo del contenedor principal del perfil */
+.perfil-usuario {
+    width: 100%; /* Hace que abarque todo el ancho de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding: 0 20px; /* Agrega padding lateral para que el contenido no toque los bordes */
+}
+
+/* Estilo del contenedor del perfil */
+.profile-container {
+    width: 100%; /* Abarca todo el ancho disponible */
+    max-width: 1200px; /* Máximo ancho para pantallas grandes */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    text-align: center; /* Centramos el contenido */
+}
+
+/* Header del perfil */
+.profile-header {
+    background-color: #1a2a44;
+    padding: 25px 20px;
+    color: #ffffff;
+}
+
+.profile-header h1 {
+    font-size: clamp(24px, 5vw, 28px);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Contenido del perfil */
+.profile-content {
+    padding: 20px;
+}
+
+/* Estilo para las filas del formulario */
+.profile-row {
+    display: flex;
+    flex-direction: column; /* Cambia a columna para mejor alineación */
+    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+/* Estilo para las etiquetas */
+.profile-row label {
+    font-weight: bold;
+    color: #333; /* Color más oscuro para mejor contraste */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el input */
+    font-size: 16px; /* Tamaño de fuente más grande */
+}
+
+/* Estilo para los inputs */
+.profile-row input,
+.profile-row select {
+    padding: 12px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: border-color 0.3s ease; /* Transición suave para el borde */
+}
+
+/* Efecto al enfocar el input */
+.profile-row input:focus,
+.profile-row select:focus {
+    border-color: #4A90E2; /* Color del borde al enfocar */
+    outline: none; /* Elimina el contorno predeterminado */
+}
+
+/* Estilo para el botón */
+.redirect-button {
+    background-color: #4A90E2; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 12px 24px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+.redirect-button:hover {
+    background-color: #e6d543; /* Color amarillo al pasar el ratón */
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: #1a2a44;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries para hacer el diseño más responsivo */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .user-options {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        gap: 20px; /* Reduce el espacio entre iconos */
+    }
+
+    .perfil-usuario {
+        padding: 0 10px; /* Reduce el padding lateral */
+    }
+
+    .profile-container {
+        padding: 10px; /* Agrega padding interno */
+    }
+
+    .profile-row {
+        flex-direction: column; /* Asegura que los inputs estén en columna */
+    }
+
+    .redirect-button {
+        width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+        font-size: 16px; /* Tamaño de fuente más pequeño */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding: 10px; /* Reduce el padding en pantallas muy pequeñas */
+    }
+
+    .profile-header h1 {
+        font-size: clamp(20px, 5vw, 24px); /* Tamaño de fuente más pequeño */
+    }
+
+    .profile-row label {
+        font-size: 14px; /* Tamaño de fuente más pequeño para etiquetas */
+    }
+
+    .profile-row input,
+    .profile-row select {
+        font-size: 14px; /* Tamaño de fuente más pequeño para inputs */
+    }
+
+    .search-bar .search-button {
+        font-size: clamp(18px, 2vw, 20px); /* Tamaño del icono más pequeño */
+    }
+
+    .user-options .icon i {
+        font-size: clamp(24px, 4vw, 30px); /* Tamaño de iconos más pequeño */
+    }
+
+    .user-options a {
+        font-size: clamp(20px, 4vw, 24px); /* Tamaño de fuente más pequeño */
+    }
+}
