@@ -55,17 +55,22 @@ session_start();
                         <div class="dropdown-content">
                             <a href="/UACommerce/controllers/profile.php">Perfil</a>
                             <a href="settings.php">Configuración</a>
+                            
+                            <?php if ($_SESSION['user_type'] === 'vendedor'): ?>
+                                <a href="/UACommerce/controllers/myProducts.php">Mis Productos</a>
+                            <?php endif; ?>
+
                             <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
                         </div>
                     </div>
                 <?php else: ?>
                     <div class="form-group text-center">
-                    <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                        <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
                     </div>
-
                 <?php endif; ?>
             </div>
         </div>
+
     </header>
     
     <!-- Sección de cartas de productos -->
