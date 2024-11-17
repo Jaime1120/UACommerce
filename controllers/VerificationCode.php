@@ -52,16 +52,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Verificar Código</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .title {
+            font-size: 3em;
+            color: #1a2a44; /* Color azul */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #1a2a44; /* Color azul */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #FFD700; /* Color amarillo al pasar el cursor */
+        }
+        p {
+            margin-top: 20px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Verificación de Código</h1>
-    <form method="POST">
-        <label for="verification_code">Ingrese el código enviado a su correo:</label>
-        <input type="text" id="verification_code" name="verification_code" required>
-        <button type="submit">Validar</button>
-    </form>
-    <?php if (isset($message)): ?>
-        <p><?php echo htmlspecialchars($message); ?></p>
-    <?php endif; ?>
+    <h1 class="title">UACommerce</h1>
+    <div class="container">
+        <h1>Verificación de Código</h1>
+        <form method="POST">
+            <label for="verification_code">Ingrese el código enviado a su correo:</label>
+            <input type="text" id="verification_code" name="verification_code" required>
+            <button type="submit">Validar</button>
+        </form>
+        <?php if (isset($message)): ?>
+            <p><?php echo htmlspecialchars($message); ?></p>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
