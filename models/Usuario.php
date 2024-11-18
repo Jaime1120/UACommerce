@@ -83,8 +83,7 @@ class Usuario {
 
     public function update() {
         $query = "UPDATE " . $this->table_name . "
-                  SET nombre = :nombre, apellidos = :apellidos, correo_electronico = :correo, 
-                      direccion = :direccion, telefono = :telefono, tipo_usuario = :tipo_usuario 
+                  SET nombre = :nombre, apellidos = :apellidos, direccion = :direccion, telefono = :telefono, tipo_usuario = :tipo_usuario 
                   WHERE id_usuario = :id_usuario";
     
         $stmt = $this->conn->prepare($query);
@@ -92,7 +91,6 @@ class Usuario {
         // Sanitizar los valores
         $this->nombre = htmlspecialchars(strip_tags($this->nombre));
         $this->apellidos = htmlspecialchars(strip_tags($this->apellidos));
-        $this->correo_electronico = htmlspecialchars(strip_tags($this->correo_electronico));
         $this->direccion = htmlspecialchars(strip_tags($this->direccion));
         $this->telefono = htmlspecialchars(strip_tags($this->telefono));
         $this->tipo_usuario = htmlspecialchars(strip_tags($this->tipo_usuario));
@@ -100,7 +98,6 @@ class Usuario {
         // Vincular los valores
         $stmt->bindParam(':nombre', $this->nombre);
         $stmt->bindParam(':apellidos', $this->apellidos);
-        $stmt->bindParam(':correo', $this->correo_electronico);
         $stmt->bindParam(':direccion', $this->direccion);
         $stmt->bindParam(':telefono', $this->telefono);
         $stmt->bindParam(':tipo_usuario', $this->tipo_usuario);

@@ -63,10 +63,6 @@
                 <input type="text" name="apellidos" value="<?= htmlspecialchars($userData['apellidos']); ?>" required>
             </div>
             <div class="profile-row">
-                <label>Correo Electrónico:</label>
-                <input type="email" name="correo_electronico" value="<?= htmlspecialchars($userData['correo_electronico']); ?>" required>
-            </div>
-            <div class="profile-row">
                 <label>Dirección:</label>
                 <input type="text" name="direccion" value="<?= htmlspecialchars($userData['direccion']); ?>" required>
             </div>

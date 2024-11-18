@@ -24,7 +24,6 @@ $userId = $_SESSION['user_id'];
 $data = [
     'nombre' => $_POST['nombre'],
     'apellidos' => $_POST['apellidos'],
-    'correo_electronico' => $_POST['correo_electronico'],
     'direccion' => $_POST['direccion'],
     'telefono' => $_POST['telefono'],
     'tipo_usuario' => $_POST['tipo_usuario'],
