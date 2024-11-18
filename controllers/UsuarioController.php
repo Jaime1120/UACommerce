@@ -75,7 +75,7 @@ class UsuarioController {
 
     public function updateProfile($data) {
         // Validar campos obligatorios
-        if (empty($data['nombre']) || empty($data['correo_electronico'])) {
+        if (empty($data['nombre'])) {
             return ["success" => false, "message" => "Los campos Nombre y Correo Electrónico son obligatorios."];
         }
     
@@ -85,7 +85,6 @@ class UsuarioController {
         $this->usuario->id = $data['id_usuario']; // Asegúrate de que la clase Usuario tenga una propiedad para el ID
         $this->usuario->nombre = $data['nombre'];
         $this->usuario->apellidos = $data['apellidos'];
-        $this->usuario->correo_electronico = $data['correo_electronico'];
         $this->usuario->direccion = $data['direccion'];
         $this->usuario->telefono = $data['telefono'];
         $this->usuario->tipo_usuario = $data['tipo_usuario'];
