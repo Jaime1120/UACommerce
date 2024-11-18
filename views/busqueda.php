@@ -27,7 +27,7 @@ session_start();
         <div class="header-container">
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="#">Lo más top</a></li>
+                    <li><a href="views/TopView.php">Lo más top</a></li>
                     <li><a href="#">Mis compras</a></li>
                     <li><a href="views/categoriasView.php">Categorías</a></li>
                 </ul>
