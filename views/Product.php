@@ -124,7 +124,7 @@ session_start();
                         document.getElementById('product-name').textContent = data.nombre_producto;
                         document.getElementById('product-description').textContent = data.descripcion;
                         document.getElementById('vendedor-id').textContent = data.id_vendedor;  // El ID del vendedor
-                        document.getElementById('category').textContent = "Categoría no disponible";  // No hay categoría en tu JSON, puedes agregarlo si es necesario
+                        document.getElementById('category').textContent = data.categoria;  // No hay categoría en tu JSON, puedes agregarlo si es necesario
                         document.getElementById('price').textContent = `$${data.precio}`;
                         document.getElementById('stock').textContent = data.stock; // Stock disponible
                     } else {

@@ -51,13 +51,13 @@ session_start();
 
                 <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="dropdown">
-                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <p>Bienvenido(a), <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
                         <div class="dropdown-content">
                             <a href="/UACommerce/controllers/profile.php">Perfil</a>
                             <a href="settings.php">Configuración</a>
                             
                             <?php if ($_SESSION['user_type'] === 'vendedor'): ?>
-                                <a href="/UACommerce/controllers/myProducts.php">Mis Productos</a>
+                                <a href="/UACommerce/controllers/ProductosVendedor.php">Mis Productos</a>
                             <?php endif; ?>
 
                             <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>

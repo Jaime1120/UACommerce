@@ -7,6 +7,8 @@ $dbname = "tienda";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+session_start();
+
 // Verificar la conexión
 if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
@@ -22,8 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stock = $_POST['stock'];
     $imagen_url = $_POST['imagen_url'];
 
+
     // Asigna el id del vendedor, asegúrate de que este id exista en la tabla Usuarios.
-    $id_vendedor = 1; // Reemplaza con el id del usuario vendedor existente.
+    $id_vendedor = $_SESSION['user_id']; // Reemplaza con el id del usuario vendedor existente.
 
     // Validación básica de campos obligatorios
     if (empty($nombre_producto) || empty($descripcion) || $precio <= 0 || $id_categoria <= 0 || $stock < 0) {
@@ -51,6 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Redireccionar de vuelta al formulario con el mensaje de éxito o error
-header("Location: /UACommerce/index.php?message=" . urlencode($message) . "&success=" . urlencode($success));
+header("Location: /UACommerce/controllers/ProductosVendedor.php");
 exit();
 ?>

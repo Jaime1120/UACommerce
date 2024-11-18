@@ -115,11 +115,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->setFrom('uacommerce.server@gmail.com', 'UACommerce');
             $mail->addAddress($_POST['correo_electronico']);
             $mail->isHTML(true);
-            $mail->Subject = 'Código de Verificación';
+            $mail->Subject = 'Codigo de Verificacion';
             $mail->Body = "<p>Hola {$_POST['nombre']},</p>
-                           <p>Gracias por registrarte en UACommerce. Usa este código para verificar tu cuenta:</p>
+                           <p>Gracias por registrarte en UACommerce. Usa este codigo para verificar tu cuenta:</p>
                            <h3>{$verification_code}</h3>
-                           <p>Este código es válido por 10 minutos.</p>";
+                           <p>Este codigo es valido por 10 minutos.</p>";
 
             $mail->send();
         } catch (Exception $e) {
