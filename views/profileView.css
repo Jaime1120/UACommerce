@@ -6,9 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-   
 }
-
 
 /* Header y logos - Con ajustes responsivos */
 .logo-container {
@@ -58,7 +56,6 @@ body {
     text-decoration: none;
     font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
     font-style: italic;
-    /*font-family: 'Poppins', sans-serif;*/
     padding: 5px 10px;
     white-space: nowrap; /* Evita que los textos se rompan */
 }
@@ -105,17 +102,16 @@ body {
     background-color: #ffd700; /* Cambia el color en hover */
 }
 
-
 /* Opciones de usuario responsivas */
 .user-options {
     display: flex;
-    gap: 40px ;
+    gap: 40px;
     justify-content: center;
     align-items: center;
 }
 
-.user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
-    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
+.user-options .icon i {
+    font-size: clamp(30px, 4vw, 38px); /* Aumenta el tamaño de los iconos */
     color: #ffffff; /* Color de los iconos */
     transition: color 0.3s ease, transform 0.2s ease;
 }
@@ -136,9 +132,8 @@ body {
 
 .user-options a:hover {
     color: #e6d543; /* Cambia de color al pasar el ratón */
-    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
+    transform: scale(1. 1); /* Aumenta un poco el tamaño en hover */
 }
-
 
 /* Menú desplegable */
 .dropdown {
@@ -151,7 +146,7 @@ body {
 
 .dropdown:hover {
     color: #e6d543;
-    transform: scale(1.10); 
+    transform: scale(1.10);
     cursor: pointer;
 }
 
@@ -221,7 +216,6 @@ body {
     display: block;
 }
 
-
 /* Estilo del contenedor principal del perfil */
 .perfil-usuario {
     width: 100%; /* Hace que abarque todo el ancho de la pantalla */
@@ -289,33 +283,81 @@ body {
     margin: 20px 0;
 }
 
-/* Estilos del botón */
+/* Estilo para el botón */
 .redirect-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #4A90E2;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #4A90E2; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 12px 24px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
 }
 
+/* Efecto al pasar el ratón sobre el botón */
 .redirect-button:hover {
-    background-color: #357ABD; /* Color al pasar el ratón */
-    transform: scale(1.05); /* Efecto de escala en hover */
+    background-color: #e6d543; /* Color amarillo al pasar el ratón */
+    transform: scale(1.05); /* Efecto de escala */
 }
 
-
-/*Estilo para el footer*/
-footer {
-    background-color: #f9fafb;
-    color: #999;
-    padding: 15px;
-    font-size: 14px;
+/* Estilo para el pie de página */
+.footer {
+    background-color: #1a2a44;
+    color: white;
     text-align: center;
-    width: 100%;
+    padding: 20px 0;
     position: relative;
     bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries para mejorar la responsividad */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .user-options {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        gap: 20px; /* Reduce el espacio entre iconos */
+    }
+
+    .profile-row {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .profile-row .value {
+        text-align: left; /* Alinea el valor a la izquierda */
+    }
+
+    .redirect-button {
+        width: 100%; /* Botón ocupa todo el ancho */
+        padding: 12px; /* Ajusta el padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+        padding: 10px; /* Reduce el padding en pantallas muy pequeñas */
+    }
+
+    .profile-header h1 {
+        font-size: clamp(20px, 5vw, 24px); /* Ajusta el tamaño del título */
+    }
+
+    .profile-row label, .profile-row .value {
+        font-size: clamp(14px, 3vw, 16px); /* Ajusta el tamaño de fuente */
+    }
+
+    .redirect-button {
+        font-size: clamp(16px, 3vw, 18px); /* Ajusta el tamaño del botón */
+    }
 }

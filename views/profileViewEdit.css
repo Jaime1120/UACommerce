@@ -287,6 +287,13 @@ body {
     outline: none; /* Elimina el contorno predeterminado */
 }
 
+/* Contenedor para centrar el botón */
+.button-container {
+    display: flex; /* Usamos flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    margin-top: 20px; /* Espacio superior opcional */
+}
+
 /* Estilo para el botón */
 .redirect-button {
     background-color: #4A90E2; /* Color de fondo */
