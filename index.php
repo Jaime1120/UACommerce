@@ -35,10 +35,10 @@ session_start();
 
             <div class="search-bar">
                 <form action="views/busqueda.php" method="GET"  class="search-bar">
-                    <input 
-                        type="text" 
-                        name="query" 
-                        placeholder="Buscar productos..." 
+                    <input
+                        type="text"
+                        name="query"
+                        placeholder="Buscar productos..."
                         required>
                     <button type="submit" class="search-button">
                         <i class='bx bx-search-alt-2'></i>

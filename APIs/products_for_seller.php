@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 // Obtener el método de solicitud
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Obtener el ID del usuario de la URL (ejemplo: Api.php?id_usuario=1)
+
 $id_usuario = isset($_GET['id_usuario']) ? intval($_GET['id_usuario']) : 0;
 
 switch ($method) {
