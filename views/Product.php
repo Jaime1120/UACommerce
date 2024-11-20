@@ -98,7 +98,7 @@ session_start();
         </div>
         <div class="comments-container">
             <h3>Comentarios</h3>
-            <!-- Los comentarios se cargarán aquí -->
+            
         </div>
     </div>
 
