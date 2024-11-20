@@ -94,7 +94,7 @@ session_start();
                                 <tbody>';
 
                             $total = 0;
-                            $itemcount = 0;
+                            $itemcount = 0; // Cambiar esta variable para que sea consistente
                             foreach ($cart_items as $item) {
                                 $subtotal = $item['precio_unitario'] * $item['cantidad'];
                                 $total += $subtotal;
@@ -120,7 +120,7 @@ session_start();
                     <h2>Total:</h2>
                     <h2 id="total-amount"><?php echo isset($total) ? '$' . number_format($total, 2) : '$0.00'; ?></h2>
 
-                    <?php if (isset($item_count) && $item_count > 0): ?>
+                    <?php if (isset($itemcount) && $itemcount > 0): ?> <!-- Cambia aquí la variable -->
                         <form action="../APIs/confirmar_compra.php" method="POST">
                             <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                             <button type="submit" class="btn">Comprar</button>
