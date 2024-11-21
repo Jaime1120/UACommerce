@@ -8,42 +8,57 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis compras - UACommerce</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="MisCompras.css">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-    <div class="logo-container">
+        <div class="logo-container">
             <div class="logo-left">
-            <a href="../index.php">
-                <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                <a href="../index.php">
+                    <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                </a>
             </div>
+
             <div class="logo-right">
                 <img src="../Recursos/Logouni.jpg" alt="Logo Página">
             </div>
         </div>
+                
         <div class="header-container">
             <nav class="nav-menu">
-            <ul>
-                    <li><a href="../views/TopView.php">Lo más top</a></li>
-                    <li><a href="../views/MisComprasView.php">Mis compras</a></li>
-                    <li><a href="../views/CarritoView.php">Carrito</a></li>
+                <ul>
+                    <li><a href="TopView.php">Lo más top</a></li>
+                    <li><a href="#">Mis compras</a></li>
+                    <li><a href="categoriasView.php">Categorías</a></li>
                 </ul>
             </nav>
+
+            
             <div class="user-options">
-                <?php if (isset($_SESSION['user_name'])): ?>
-                    <div class="dropdown">
-                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
-                        <div class="dropdown-content">
-                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
-                            <a href="settings.php">Configuración</a>
-                            <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
+                <a href="carritoView.php" class="icon"><i class='bx bx-cart'></i></a>
+
+                    <?php if (isset($_SESSION['user_name'])): ?>
+                        <div class="dropdown">
+                            <p>Bienvenido(a), <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                            <div class="dropdown-content">
+                                <a href="/../UACommerce/controllers/profile.php">Perfil</a>
+                                <a href="settings.php">Configuración</a>
+                                
+                                <?php if ($_SESSION['user_type'] === 'vendedor'): ?>
+                                    <a href="/UACommerce/controllers/ProductosVendedor.php">Mis Productos</a>
+                                <?php endif; ?>
+
+                                <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
+                            </div>
                         </div>
-                    </div>
-                <?php else: ?>
-                    <a href="../controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
-                <?php endif; ?>
+                    <?php else: ?>
+                        <div class="form-group text-center">
+                            <a href="/../UACommerce/controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                        </div>
+                    <?php endif; ?>
             </div>
+
         </div>
     </header>
 
@@ -66,7 +81,7 @@ session_start();
                 } else if (empty($orders)) {
                     echo "<p>No tienes pedidos aún.</p>";
                 } else {
-                    echo '<table border="1">
+                    echo '<table border="1" class="orders-table">
                         <thead>
                             <tr>
                                 <th>ID Pedido</th>

@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   /* font-family: Arial, sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header y logos - Con ajustes responsivos */
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    flex-wrap: wrap; /* Permite que los logos se apilen en pantallas pequeñas */
+    gap: 10px;
+}
+
+.logo-left img {
+    width: min(100px, 30vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.logo-right img {
+    width: min(250px, 50vw); /* Responsive usando min() */
+    height: auto;
+}
+
+.header-container {
+    background-color: #1a2a44;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: clamp(10px, 2.9vw, 35px); /* Padding responsivo */
+    min-height: 100px;
+    border-radius: 5px;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en móvil */
+    gap: 15px;
+}
+
+/* Navegación responsiva */
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan */
+    justify-content: center;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+    /*font-family: 'Poppins', sans-serif;*/
+    padding: 5px 10px;
+    white-space: nowrap; /* Evita que los textos se rompan */
+}
+
+.nav-menu ul li a:hover {
+    color: #ffd700;
+    transform: scale(1.10);
+}
+
+/* Opciones de usuario responsivas */
+.user-options {
+    display: flex;
+    gap: 40px ;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-options .icon i { /* Estilo para los iconos específicos de Boxicons */
+    font-size: clamp(30px, 4vw, 38px) ; /* Aumenta el tamaño de los iconos */
+    color: #ffffff; /* Color de los iconos */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.user-options .icon i:hover {
+    color: #e6d543; /* Color en hover */
+    transform: scale(1.10); /* Aumenta un poco el tamaño al hacer hover */
+}
+
+.user-options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(24px, 4vw, 32px); /* Tamaño responsivo */
+    color: #ffffff; /* Color del ícono */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.user-options a:hover {
+    color: #e6d543; /* Cambia de color al pasar el ratón */
+    transform: scale(1.1); /* Aumenta un poco el tamaño en hover */
+}
+
+/* Menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white; /* Texto blanco para el saludo */
+    font-size: clamp(16px, 2vw, 18px); /* Tamaño de fuente responsivo */
+    font-style: italic;
+}
+
+.dropdown:hover {
+    color: #e6d543;
+    transform: scale(1.10); 
+    cursor: pointer;
+}
+
+/* Contenedor del menú desplegable */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    z-index: 1;
+    border-radius: 8px; /* Bordes redondeados */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Links dentro del menú desplegable */
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: block;
+    font-size: clamp(14px, 1.5vw, 16px); /* Tamaño de fuente responsivo */
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid rgba(12, 1, 1, 0.1); /* Línea divisoria tenue */
+}
+
+/* Color de fondo al pasar el mouse por un enlace */
+.dropdown-content a:hover {
+    background-color: #e6d543 !important; /* Color amarillo */
+    color: #f6f7f8; /* Texto azul al hacer hover */
+}
+
+/* Muestra el menú desplegable al hacer hover en el contenedor */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*Estilo para el footer*/
+footer {
+    background-color: #f9fafb;
+    color: #999;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+
+/* Contenedor de las órdenes */
+.orders-container {
+    max-width: 90%;
+    margin: 20px auto;
+    background: #ffffff; /* Fondo blanco */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    padding: 20px;
+}
+
+/* Estilo de la tabla */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina bordes dobles */
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.orders-table thead {
+    background-color: #f3e24a; /* Azul oscuro */
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.orders-table th, 
+.orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Línea divisoria */
+}
+
+
+.orders-table tbody tr:nth-child(even) {
+    background-color: #f3f4f6; /* Alterna colores de filas */
+}
+
+/* Personalización de botones o textos */
+.orders-table .estado {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    text-align: center;
+}
+
+
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #1a2a44;
+}
+
+
+/* Media Queries para ajustes específicos */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .search-bar {
+        order: -1; /* Mueve la barra de búsqueda arriba en móvil */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    .user-options {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .orders-container {
+        padding: 15px;
+    }
+
+    .orders-table th, 
+    .orders-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+
+    .orders-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .orders-table th, 
+    .orders-table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #121212; /* Fondo general oscuro */
+        /*color: #e0e0e0; /* Texto en color claro */
+    }
+
+    footer {
+        background-color: #1a1a1a;
+    }
+}
+
+
