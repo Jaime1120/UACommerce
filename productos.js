@@ -36,6 +36,10 @@ fetch('APIs/all_products.php')
           </div>
       `;
 
+      productCard.addEventListener('click', () => {
+        window.location.href = `/UACommerce/views/Product.php?id=${product.id_producto}`;
+      });
+
       // Evento para "Agregar al carrito"
       const addToCartButton = productCard.querySelector('.add-to-cart');
       const quantityInput = productCard.querySelector('.quantity-input');
