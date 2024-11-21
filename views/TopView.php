@@ -14,21 +14,22 @@ session_start();
 <body>
     <!-- Logos en contenedor separado con fondo blanco -->
     <div class="logo-container">
-        <div class="logo-left">
-            <img src="../Recursos/LogoFacu.jpg" alt="Logo Izquierdo">
+            <div class="logo-left">
+            <a href="../index.php">
+                <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+            </div>
+            <div class="logo-right">
+                <img src="../Recursos/Logouni.jpg" alt="Logo Página">
+            </div>
         </div>
-        <div class="logo-right">
-            <img src="../Recursos/Logouni.jpg" alt="Logo Derecho">
-        </div>
-    </div>
 
     <!-- Menú y opciones en contenedor azul -->
     <header class="header-container">
         <nav class="nav-menu">
             <ul>
-                <li><a href="views/TopView.php">Lo más top</a></li>
-                <li><a href="#">Mis compras</a></li>
-                <li><a href="views/categoriasView.php">Categorías</a></li>
+                <li><a href="../views/TopView.php">Lo más top</a></li>
+                <li><a href="../views/MisComprasView.php">Mis compras</a></li>
+                <li><a href="../views/categoriasView.php">Categorías</a></li>
             </ul>
         </nav>
 
