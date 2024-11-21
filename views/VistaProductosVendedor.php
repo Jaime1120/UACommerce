@@ -13,8 +13,9 @@
     <header>
             <div class="logo-container">
                 <div class="logo-left">
-                <a href="index.php">
+                <a href="../index.php">
                     <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
+                </a>
                 </div>
                 <div class="logo-right">
                     <img src="../Recursos/Logouni.jpg" alt="Logo Página">
@@ -23,14 +24,14 @@
             <div class="header-container">
                 <nav class="nav-menu">
                     <ul>
-                        <li><a href="views/TopView.php">Lo más top</a></li>
+                        <li><a href="../views/TopView.php">Lo más top</a></li>
                         <li><a href="#">Mis compras</a></li>
-                        <li><a href="views/categoriasView.php">Categorías</a></li>
+                        <li><a href="../views/categoriasView.php">Categorías</a></li>
                     </ul>
                 </nav>
 
                 <div class="user-options">
-                    <a href="views/carritoView.php" class="icon"><i class='bx bx-cart'></i></a>
+                    <a href="../views/carritoView.php" class="icon"><i class='bx bx-cart'></i></a>
 
                     <?php if (isset($_SESSION['user_name'])): ?>
                         <div class="dropdown">
