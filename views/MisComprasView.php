@@ -80,17 +80,20 @@ session_start();
                         <tbody>';
 
                     foreach ($orders as $order) {
+                        $total = 0;
+
                         echo '<tr>';
                         echo '<td>' . htmlspecialchars($order['id_pedido']) . '</td>';
-                        echo '<td>' . htmlspecialchars($order['fecha']) . '</td>';
+                        echo '<td>' . htmlspecialchars($order['fecha_pedido']) . '</td>';
                         echo '<td>';
 
                         foreach ($order['productos'] as $producto) {
                             echo htmlspecialchars($producto['nombre_producto']) . ' (x' . $producto['cantidad'] . ')<br>';
+                            $total += $producto['subtotal']; // Sumar el subtotal de cada producto
                         }
 
                         echo '</td>';
-                        echo '<td>$' . number_format($order['total'], 2) . '</td>';
+                        echo '<td>$' . number_format($total, 2) . '</td>';
                         echo '<td>' . htmlspecialchars($order['estado']) . '</td>';
                         echo '</tr>';
                     }
