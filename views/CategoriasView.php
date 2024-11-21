@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <header>
-    <div class="logo-container">
+        <div class="logo-container">
             <div class="logo-left">
             <a href="../index.php">
                 <img src="../Recursos/LogoFacu.jpg" alt="Logo Facultad">
@@ -68,69 +68,60 @@ session_start();
     </header>
 
     <div class="product-container">
-        <!-- Ejemplo de productos -->
-        <div class="product-card" onclick="location.href='Product.php'">
+        <!-- Modificar las tarjetas para enviar el ID de la categoría -->
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=1'">
             <img class="product-img" src="../Recursos/dulces.avif" alt="Producto 1">
             <h3>DULCES</h3>
-            
             <p>Dulces, paletas y golocinas.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=2'">
             <img class="product-img" src="../Recursos/postres.jpg" alt="Producto 1">
             <h3>POSTRES</h3>
-
             <p>Postres de todo tipo, brownies, pasteles, muffins y reposteria.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=3'">
             <img class="product-img" src="../Recursos/bebidas.jpg" alt="Producto 1">
             <h3>BEBIDAS</h3>
-            
-            <p>Bebidas, jugos, aguas naturales, malteadas y mas.</p>
+            <p>Bebidas, jugos, aguas naturales, malteadas y más.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=4'">
             <img class="product-img" src="../Recursos/comida.jpg" alt="Producto 1">
             <h3>COMIDA</h3>
-            
             <p>Servicio de alimentos, sandwiches, tortas y desayunos y almuerzos.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=5'">
             <img class="product-img" src="../Recursos/papeleria.jpg" alt="Producto 1">
             <h3>PAPELERIA</h3>
-            
-            <p>Hojas, impresiones, lapices, plumas y mas.</p>
+            <p>Hojas, impresiones, lápices, plumas y más.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=6'">
             <img class="product-img" src="../Recursos/bisuteria.jpg" alt="Producto 1">
             <h3>BISUTERIA</h3>
-            
-            <p>Pulseras, collares, stickers, aretes, colgantes y mas.</p>
+            <p>Pulseras, collares, stickers, aretes, colgantes y más.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=7'">
             <img class="product-img" src="../Recursos/servicios.jfif" alt="Producto 1">
             <h3>SERVICIOS</h3>
-            
-            <p>Prestacion de servicios de todo tipo, impresiones, tenis, camisas y mas. </p>
+            <p>Prestación de servicios de todo tipo, impresiones, tenis, camisas y más.</p>
         </div>
 
-        <div class="product-card" onclick="location.href='Product.php'">
+        <div class="product-card" onclick="location.href='products_by_category.php?category_id=8'">
             <img class="product-img" src="../Recursos/libros.jpg" alt="Producto 1">
             <h3>LIBROS</h3>
-            
-            <p>Venta de libros, guias y enciclopedias.</p>
+            <p>Venta de libros, guías y enciclopedias.</p>
         </div>
     </div>
 
     <footer class="footer">
-            <div class="container text-center">
-                <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
-            </div>
+        <div class="container text-center">
+            <span class="text-muted">UACommerce © <?php echo date('Y'); ?></span>
+        </div>
     </footer>
-    
 </body>
 </html>
