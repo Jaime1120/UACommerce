@@ -125,7 +125,7 @@ session_start();
                     .then(response => response.json())
                     .then(data => {
                         if (data && data.id_producto) {
-                            document.getElementById('product-img').src = data.imagen_url || 'Recursos/default.png';
+                            document.getElementById('product-img').src = data.imagen_url || '../Recursos/default.png';
                             document.getElementById('product-name').textContent = data.nombre_producto;
                             document.getElementById('product-description').textContent = data.descripcion;
                             document.getElementById('vendedor-id').textContent = data.id_vendedor;
