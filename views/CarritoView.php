@@ -106,11 +106,12 @@ session_start();
                                 $itemcount++;
 
                                 echo '<tr>';
-                                echo '<td>' . htmlspecialchars($item['nombre_producto']) . '</td>';
-                                echo '<td>' . htmlspecialchars($item['cantidad']) . '</td>';
-                                echo '<td>$' . number_format($item['precio_unitario'], 2) . '</td>';
-                                echo '<td>$' . number_format($subtotal, 2) . '</td>';
-                                echo '</tr>';
+                    echo '<td>' . htmlspecialchars($item['nombre_producto']) . '</td>';
+                    echo '<td>' . htmlspecialchars($item['cantidad']) . '</td>';
+                    echo '<td>$' . number_format($item['precio_unitario'], 2) . '</td>';
+                    echo '<td>$' . number_format($subtotal, 2) . '</td>';
+                    echo '<td><a href="carritoView.php?remove=' . $item['id_producto'] . '" class="remove-button">Eliminar</a></td>'; // Aquí el enlace para eliminar
+                    echo '</tr>';
                             }
 
                             echo '</tbody></table>';
@@ -136,5 +137,32 @@ session_start();
                 </div>
             </div>
         </main>
+        <script>
+    function eliminarProducto(productId) {
+        const userId = <?php echo $_SESSION['user_id']; ?>;
+
+        // Realizar una solicitud AJAX
+        fetch(`http://localhost/UACommerce/APIs/eliminar_producto_api.php?remove=${productId}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Mostrar un mensaje de éxito
+                alert(data.message);
+                // Actualizar el carrito de manera dinámica
+                location.reload(); // Recargar la página para reflejar los cambios
+            } else {
+                // Mostrar un mensaje de error
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ocurrió un error al eliminar el producto');
+        });
+    }
+</script>
+
     </body>
 </html>
