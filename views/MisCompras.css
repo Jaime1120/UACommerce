@@ -320,17 +320,45 @@ h1 {
     
 }
 
-/* Modo oscuro */
 @media (prefers-color-scheme: dark) {
-
     body {
-        background-color: #121212; /* Fondo general oscuro */
-        /*color: #e0e0e0; /* Texto en color claro */
+        background-color: #121212; /* Fondo oscuro */
+        color: #e0e0e0; /* Texto claro */
+    }
+
+    .orders-container {
+        background-color: #1e1e1e; /* Fondo oscuro para las órdenes */
+        color: #e0e0e0; /* Texto claro */
+    }
+
+    .orders-table th {
+        background-color: #333; /* Fondo más oscuro para encabezados */
+        color: #e0e0e0; /* Texto claro */
+    }
+
+    .orders-table td {
+        color: #e0e0e0;
+        border-bottom: 1px solid #444; /* Líneas divisorias en gris oscuro */
+    }
+
+    .orders-table tbody tr:nth-child(even) {
+        background-color: #2a2a2a; /* Alternar filas */
+    }
+
+    .orders-table tbody tr:hover {
+        background-color: #3a3a3a; /* Color más oscuro al pasar el mouse */
+    }
+
+    h1 {
+        color: #f4f5f6;
     }
 
     footer {
         background-color: #1a1a1a;
+        color: #888; /* Texto del footer */
     }
+
 }
+
 
 
