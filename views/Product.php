@@ -119,6 +119,34 @@ session_start();
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
 
+
+            fetch(`http://localhost/UACommerce/APIs/coments_for_product.php?id_producto=${productId}`)
+                .then(response => response.json()) // Convertir la respuesta a JSON
+                .then(comments => {
+                    const commentsContainer = document.querySelector('.comments-container');
+                    // Limpiar contenedor (por si ya hay comentarios)
+                    commentsContainer.innerHTML = '';
+
+                    if (comments && comments.length > 0) {
+                        comments.forEach(comment => {
+                            // Crear elementos para cada comentario
+                            const commentElement = document.createElement('div');
+                            commentElement.classList.add('comment');
+                            commentElement.innerHTML = `
+                                <p><strong>Usuario ${comment.id_usuario}:</strong> ${comment.comentario}</p>
+                                <span class="comment-date">${new Date(comment.fecha_creacion).toLocaleString()}</span>
+                            `;
+                            commentsContainer.appendChild(commentElement);
+                        });
+                    } else {
+                        // Mensaje si no hay comentarios
+                        commentsContainer.innerHTML = '<p>No hay comentarios para este producto.</p>';
+                    }
+                })
+                .catch(error => console.error('Error al cargar los comentarios:', error));
+
+
+
             // Verificar si se obtiene un ID válido
             if (productId) {
                 fetch(`http://localhost/UACommerce/APIs/one_product.php?id=${productId}`)
