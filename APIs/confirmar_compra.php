@@ -41,11 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_id'])) {
                 $stmt_insert->bindParam(3, $cantidad, PDO::PARAM_INT);
                 $stmt_insert->bindParam(4, $precio_unitario, PDO::PARAM_STR);
                 $stmt_insert->execute();
+
+                // 3. Actualizar el stock del producto
+                $query_update_stock = "UPDATE productos SET stock = stock - ? WHERE id_producto = ?";
+                $stmt_update_stock = $conn->prepare($query_update_stock);
+                $stmt_update_stock->bindParam(1, $cantidad, PDO::PARAM_INT);
+                $stmt_update_stock->bindParam(2, $id_producto, PDO::PARAM_INT);
+                $stmt_update_stock->execute();
             }
 
             $stmt_insert = null;
 
-            // 3. Eliminar los datos del carrito
+            // 4. Eliminar los datos del carrito
             $query_delete_cart = "DELETE FROM carrito WHERE id_comprador = ?";
             $stmt_delete = $conn->prepare($query_delete_cart);
             $stmt_delete->bindParam(1, $user_id, PDO::PARAM_INT);
