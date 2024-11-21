@@ -39,23 +39,28 @@ session_start();
                     </button>
                 </div>
                 <div class="user-options">
-                    <a href="#" class="icon"><i class='bx bx-cart'></i></a>
+                <a href="views/carritoView.php" class="icon"><i class='bx bx-cart'></i></a>
 
-                    <?php if (isset($_SESSION['user_name'])): ?>
+                <?php if (isset($_SESSION['user_name'])): ?>
                     <div class="dropdown">
-                        <p>Bienvenido, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+                        <p>Bienvenido(a), <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
                         <div class="dropdown-content">
-                            <a href="/UACommerce/controllers/profile.php">Perfil</a>
+                            <a href="/../UACommerce/controllers/profile.php">Perfil</a>
                             <a href="settings.php">Configuración</a>
+                            
+                            <?php if ($_SESSION['user_type'] === 'vendedor'): ?>
+                                <a href="/UACommerce/controllers/ProductosVendedor.php">Mis Productos</a>
+                            <?php endif; ?>
+
                             <a href="/UACommerce/logout.php" class="logout-button">Cerrar sesión</a>
                         </div>
                     </div>
-                    <?php else: ?>
-                        <div class="form-group text-center">
-                        <a href="controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                <?php else: ?>
+                    <div class="form-group text-center">
+                        <a href="/../UACommerce/controllers/login.php" class="icon"><i class='bx bx-user'></i></a>
+                    </div>
+                <?php endif; ?>
+            </div>
             </div>
         </header>
         <main>
